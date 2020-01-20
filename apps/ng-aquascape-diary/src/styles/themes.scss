@@ -1,0 +1,29 @@
+@import '../../../../node_modules/@nebular/theme/styles/theming';
+@import '../../../../node_modules/@nebular/theme/styles/themes/default';
+@import '../../../../node_modules/@nebular/theme/styles/themes/dark';
+
+@import 'typography';
+@import 'layout';
+
+$nb-themes: nb-register-theme(
+  (
+    text-heading-1-font-family: 'Pacifico',
+    text-heading-2-font-family: 'Pacifico',
+    text-heading-3-font-family: 'Pacifico',
+    text-heading-4-font-family: 'Pacifico',
+    text-heading-5-font-family: 'Pacifico'
+  ),
+  default,
+  default
+);
+$nb-themes: nb-register-theme(
+  (
+    text-heading-1-font-family: 'Pacifico',
+    text-heading-2-font-family: 'Pacifico',
+    text-heading-3-font-family: 'Pacifico',
+    text-heading-4-font-family: 'Pacifico',
+    text-heading-5-font-family: 'Pacifico'
+  ),
+  dark,
+  dark
+);

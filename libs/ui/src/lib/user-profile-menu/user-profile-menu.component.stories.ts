@@ -1,16 +1,16 @@
 
 import { UiModule } from '../ui.module';
-import { SampleComponent } from './sample.component';
+import { UserProfileMenuComponent } from './user-profile-menu.component';
 
 export default {
-  title: 'SampleComponent'
+  title: 'UserProfileMenuComponent'
 }
 
 export const primary = () => ({
   moduleMetadata: {
     imports: []
   },
-  component: SampleComponent,
+  component: UserProfileMenuComponent,
   props: {
   }
 })

@@ -16,7 +16,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@aquascape-diary/ui": ["libs/ui/src/index.ts"]
+      "@aquascape-diary/ui": ["libs/ui/src/index.ts"],
+      "@ng-aquascape-diary": ["apps/ng-aquascape-diary"],
+      "@api": ["apps/api"]
     }
   },
   "exclude": ["node_modules", "tmp"]
