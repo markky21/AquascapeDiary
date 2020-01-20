@@ -15,7 +15,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps/ng-aquascape-diary",
+            "outputPath": "dist/apps/ng-aquascape-diary/browser",
             "index": "apps/ng-aquascape-diary/src/index.html",
             "main": "apps/ng-aquascape-diary/src/main.ts",
             "polyfills": "apps/ng-aquascape-diary/src/polyfills.ts",
@@ -25,7 +25,9 @@
               "apps/ng-aquascape-diary/src/favicon.ico",
               "apps/ng-aquascape-diary/src/assets"
             ],
-            "styles": ["apps/ng-aquascape-diary/src/styles.scss"],
+            "styles": [
+              "apps/ng-aquascape-diary/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -93,6 +95,29 @@
             "jestConfig": "apps/ng-aquascape-diary/jest.config.js",
             "tsConfig": "apps/ng-aquascape-diary/tsconfig.spec.json",
             "setupFile": "apps/ng-aquascape-diary/src/test-setup.ts"
+          }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/apps/ng-aquascape-diary/server",
+            "main": "apps/ng-aquascape-diary/src/main.server.ts",
+            "tsConfig": "apps/ng-aquascape-diary/tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/ng-aquascape-diary/src/environments/environment.ts",
+                  "with": "apps/ng-aquascape-diary/src/environments/environment.prod.ts"
+                }
+              ],
+              "sourceMap": false,
+              "optimization": {
+                "scripts": false,
+                "styles": true
+              }
+            }
           }
         }
       }
