@@ -1,0 +1,141 @@
+{
+  "version": 1,
+  "projects": {
+    "ng-aquascape-diary": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/ng-aquascape-diary",
+      "sourceRoot": "apps/ng-aquascape-diary/src",
+      "prefix": "aquascape-diary",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/ng-aquascape-diary",
+            "index": "apps/ng-aquascape-diary/src/index.html",
+            "main": "apps/ng-aquascape-diary/src/main.ts",
+            "polyfills": "apps/ng-aquascape-diary/src/polyfills.ts",
+            "tsConfig": "apps/ng-aquascape-diary/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "apps/ng-aquascape-diary/src/favicon.ico",
+              "apps/ng-aquascape-diary/src/assets"
+            ],
+            "styles": ["apps/ng-aquascape-diary/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/ng-aquascape-diary/src/environments/environment.ts",
+                  "with": "apps/ng-aquascape-diary/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ng-aquascape-diary:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ng-aquascape-diary:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ng-aquascape-diary:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/ng-aquascape-diary/tsconfig.app.json",
+              "apps/ng-aquascape-diary/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/ng-aquascape-diary/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/ng-aquascape-diary/jest.config.js",
+            "tsConfig": "apps/ng-aquascape-diary/tsconfig.spec.json",
+            "setupFile": "apps/ng-aquascape-diary/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "ng-aquascape-diary-e2e": {
+      "root": "apps/ng-aquascape-diary-e2e",
+      "sourceRoot": "apps/ng-aquascape-diary-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/ng-aquascape-diary-e2e/cypress.json",
+            "tsConfig": "apps/ng-aquascape-diary-e2e/tsconfig.e2e.json",
+            "devServerTarget": "ng-aquascape-diary:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ng-aquascape-diary:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/ng-aquascape-diary-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/ng-aquascape-diary-e2e/**"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "ng-aquascape-diary"
+}

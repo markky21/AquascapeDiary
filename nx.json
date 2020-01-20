@@ -1,0 +1,22 @@
+{
+  "npmScope": "aquascape-diary",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "ng-aquascape-diary": {
+      "tags": []
+    },
+    "ng-aquascape-diary-e2e": {
+      "tags": [],
+      "implicitDependencies": ["ng-aquascape-diary"]
+    }
+  }
+}
