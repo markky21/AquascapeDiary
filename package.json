@@ -5,12 +5,18 @@
   "scripts": {
     "ng": "ng",
     "nx": "nx",
-    "start": "ng serve",
-    "start:ssr": "npm run build:ssr && npm run serve:ssr",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "nx workspace-lint && ng lint",
-    "e2e": "ng e2e",
+    "api:build": "ng build api",
+    "api:start": "ng serve api",
+    "api:test": "ng test api",
+    "ng-aquascape-diary:build": "ng build",
+    "ng-aquascape-diary:e2e": "ng e2e",
+    "ng-aquascape-diary:lint": "nx workspace-lint && ng lint",
+    "ng-aquascape-diary:start": "ng serve",
+    "ng-aquascape-diary:start:ssr": "npm run ng-aquascape-diary:build:ssr && npm run ng-aquascape-diary:serve:ssr",
+    "ng-aquascape-diary:test": "ng test",
+    "ng-aquascape-diary:serve:ssr": "node dist/apps/ng-aquascape-diary/server/server",
+    "ng-aquascape-diary:build:ssr": "npm run ng-aquascape-diary:build:client-and-server-bundles && npm run compile:server",
+    "ng-aquascape-diary:build:client-and-server-bundles": "ng build --prod && ng run ng-aquascape-diary:server:production --bundleDependencies all",
     "affected:apps": "nx affected:apps",
     "affected:libs": "nx affected:libs",
     "affected:build": "nx affected:build",
@@ -27,10 +33,7 @@
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "compile:server": "webpack --config apps/ng-aquascape-diary/webpack.server.config.js --progress --colors",
-    "serve:ssr": "node dist/apps/ng-aquascape-diary/server/server",
-    "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
-    "build:client-and-server-bundles": "ng build --prod && ng run ng-aquascape-diary:server:production --bundleDependencies all"
+    "compile:server": "webpack --config apps/ng-aquascape-diary/webpack.server.config.js --progress --colors"
   },
   "private": true,
   "dependencies": {
@@ -46,11 +49,14 @@
     "@nguniversal/express-engine": "^8.2.6",
     "@nguniversal/module-map-ngfactory-loader": "v8.2.6",
     "@nrwl/angular": "8.11.2",
-    "@nrwl/nest": "^8.11.2",
     "core-js": "^2.5.4",
     "express": "^4.15.2",
     "rxjs": "~6.4.0",
-    "zone.js": "^0.9.1"
+    "zone.js": "^0.9.1",
+    "@nestjs/common": "^6.8.3",
+    "@nestjs/core": "^6.8.3",
+    "@nestjs/platform-express": "^6.8.3",
+    "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.803.23",
@@ -75,6 +81,10 @@
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
     "typescript": "~3.5.3",
-    "webpack-cli": "^3.1.0"
+    "webpack-cli": "^3.1.0",
+    "@nrwl/node": "8.11.2",
+    "@nestjs/schematics": "^6.7.0",
+    "@nestjs/testing": "^6.8.3",
+    "@nrwl/nest": "8.11.2"
   }
 }
