@@ -1,4 +1,9 @@
-import { NgModule } from '@angular/core';
+import {
+  ModuleWithProviders,
+  NgModule,
+  Optional,
+  SkipSelf
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BaseLayoutComponent } from './base-layout/base-layout.component';
 import {
@@ -32,13 +37,36 @@ export const nebularModules = [
     CommonModule,
     NbSidebarModule.forRoot(),
     NbMenuModule.forRoot(),
-    NbThemeModule.forRoot({ name: 'default' }),
+    NbThemeModule.forRoot({ name: 'default' })
   ],
   declarations: [
     BaseLayoutComponent,
     MainHeaderComponent,
     UserProfileMenuComponent
   ],
-  exports: [...nebularModules, BaseLayoutComponent]
+  exports: [
+    ...nebularModules,
+    BaseLayoutComponent,
+    MainHeaderComponent,
+    UserProfileMenuComponent
+  ]
 })
-export class UiModule {}
+export class UiModule {
+  public static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: UiModule,
+      providers: []
+    };
+  }
+
+  /* make sure CoreModule is imported only by one NgModule the AppModule */
+  public constructor(
+    @Optional()
+    @SkipSelf()
+    parentModule: UiModule
+  ) {
+    if (parentModule) {
+      throw new Error('CoreModule is already loaded. Import only in AppModule');
+    }
+  }
+}
