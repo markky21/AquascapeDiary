@@ -1,10 +1,14 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { filter, map } from 'rxjs/operators';
-import { NB_WINDOW, NbMenuService } from '@nebular/theme';
+import {
+  NB_WINDOW,
+  NbBadgePosition,
+  NbMenuService,
+  NbComponentSize,
+  NbComponentStatus
+} from '@nebular/theme';
 import { NbMenuItem } from '@nebular/theme/components/menu/menu.service';
-import { NbComponentSize } from '@nebular/theme/components/component-size';
-import { NbComponentStatus } from '@nebular/theme/components/component-status';
-import { NbBadgePosition } from '@nebular/theme/components/badge/badge.component';
+import { UserProfileMenuService } from './user-profile-menu.service';
 
 @Component({
   selector: 'aquascape-diary-user-profile-menu',
@@ -12,18 +16,18 @@ import { NbBadgePosition } from '@nebular/theme/components/badge/badge.component
   styleUrls: ['./user-profile-menu.component.scss']
 })
 export class UserProfileMenuComponent implements OnInit {
-  @Input() menuItems: NbMenuItem[];
-  @Input() size: NbComponentSize;
-  @Input() name: string;
-  @Input() title: string;
-  @Input() badgeText: string;
-  @Input() badgeStatus:NbComponentStatus;
-  @Input() badgePosition: NbBadgePosition;
-  @Input() picture: string;
-  @Input() color: string;
-
+  @Input() menuItems: NbMenuItem[] = this.userProfileMenuService.getMenuItems();
+  @Input() size: NbComponentSize = 'medium';
+  @Input() name: string = this.userProfileMenuService.getName();
+  @Input() title: string = this.userProfileMenuService.getTitle();
+  @Input() badgeText: string = this.userProfileMenuService.getBadgeText();
+  @Input() badgeStatus: NbComponentStatus = 'success';
+  @Input() badgePosition: NbBadgePosition = 'bottom right';
+  @Input() picture: string = this.userProfileMenuService.getPicture();
+  @Input() color: string = '#cccccc';
 
   constructor(
+    private userProfileMenuService: UserProfileMenuService,
     private nbMenuService: NbMenuService,
     @Inject(NB_WINDOW) private window
   ) {}

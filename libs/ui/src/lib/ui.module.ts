@@ -28,7 +28,8 @@ export const nebularModules = [
   NbThemeModule,
   NbActionsModule,
   NbUserModule,
-  NbContextMenuModule
+  NbContextMenuModule,
+
 ];
 
 @NgModule({

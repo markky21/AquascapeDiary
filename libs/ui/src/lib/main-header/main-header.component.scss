@@ -1,6 +1,11 @@
+:host {
+  width: 100%;
+}
+
 .MainHeader {
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 
 .MainHeader-left {
@@ -8,4 +13,7 @@
 }
 
 .MainHeader-middle {
+}
+
+.MainHeader-right {
 }

@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebaseConfig: {
+    apiKey: 'AIzaSyCgtc9FaIj6nUvRcgtQX5aiUy77peM6Fac',
+    authDomain: 'aquascapediary.firebaseapp.com',
+    databaseURL: 'https://aquascapediary.firebaseio.com',
+    projectId: 'aquascapediary',
+    storageBucket: 'aquascapediary.appspot.com',
+    messagingSenderId: '945901052792',
+    appId: '1:945901052792:web:79464c8f514a158dffde8d',
+    measurementId: 'G-JJTN0Z32CQ'
+  }
 };
 
 /*
