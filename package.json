@@ -20,6 +20,7 @@
     "lib:ui:storybook:start": "nx run ui:storybook",
     "lib:ui:storybook:e2e": "nx run ui-e2e:e2e",
     "lib:ui:storybook:e2e:watch": "nx run ui-e2e:e2e --watch",
+    "lint": "ng lint",
     "affected:apps": "nx affected:apps",
     "affected:libs": "nx affected:libs",
     "affected:build": "nx affected:build",

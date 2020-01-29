@@ -1,11 +1,12 @@
+import { CommonModule } from '@angular/common';
 import {
   ModuleWithProviders,
   NgModule,
   Optional,
   SkipSelf
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { BaseLayoutComponent } from './base-layout/base-layout.component';
+import { RouterModule } from '@angular/router';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
 import {
   NbActionsModule,
   NbContextMenuModule,
@@ -16,12 +17,12 @@ import {
   NbThemeModule,
   NbUserModule
 } from '@nebular/theme';
-import { NbEvaIconsModule } from '@nebular/eva-icons';
+
 import { MainHeaderComponent } from './base-layout-main-header/main-header.component';
-import { UserProfileMenuComponent } from './user-profile-menu/user-profile-menu.component';
-import { DirectivesModule } from './directives/directives.module';
 import { BaseLayoutSubheaderComponent } from './base-layout-subheader/base-layout-subheader.component';
-import { RouterModule } from '@angular/router';
+import { BaseLayoutComponent } from './base-layout/base-layout.component';
+import { DirectivesModule } from './directives/directives.module';
+import { UserProfileMenuComponent } from './user-profile-menu/user-profile-menu.component';
 
 export const nebularModules = [
   NbEvaIconsModule,

@@ -1,5 +1,6 @@
-import { UiModule } from '../ui.module';
 import { RouterTestingModule } from '@angular/router/testing';
+
+import { UiModule } from '../ui.module';
 
 export default {
   title: 'UserProfileMenuComponent'

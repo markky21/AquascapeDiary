@@ -5,23 +5,23 @@ import { NbMenuItem } from '@nebular/theme/components/menu/menu.service';
   providedIn: 'root'
 })
 export class UserProfileMenuService {
-  getMenuItems(): NbMenuItem[] {
+  public getMenuItems(): NbMenuItem[] {
     return [{ title: 'Profile' }, { title: 'Logout' }];
   }
 
-  getName(): string {
+  public getName(): string {
     return 'John Doe';
   }
 
-  getTitle(): string {
+  public getTitle(): string {
     return '';
   }
 
-  getBadgeText(): string {
+  public getBadgeText(): string {
     return;
   }
 
-  getPicture(): string {
+  public getPicture(): string {
     return 'https://via.placeholder.com/50/4479e7/ffffff?Text=IMG';
   }
 }

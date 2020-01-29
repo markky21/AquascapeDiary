@@ -10,9 +10,11 @@ import {
   NbIconModule,
   NbInputModule
 } from '@nebular/theme';
+
+import { DirectivesModule } from '../directives/directives.module';
+
 import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './login/login.component';
-import { DirectivesModule } from '../directives/directives.module';
 
 @NgModule({
   imports: [

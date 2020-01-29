@@ -1,13 +1,14 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
-import { filter, map } from 'rxjs/operators';
 import {
   NB_WINDOW,
   NbBadgePosition,
-  NbMenuService,
   NbComponentSize,
-  NbComponentStatus
+  NbComponentStatus,
+  NbMenuService
 } from '@nebular/theme';
 import { NbMenuItem } from '@nebular/theme/components/menu/menu.service';
+import { filter, map } from 'rxjs/operators';
+
 import { UserProfileMenuService } from './user-profile-menu.service';
 
 @Component({
@@ -16,23 +17,23 @@ import { UserProfileMenuService } from './user-profile-menu.service';
   styleUrls: ['./user-profile-menu.component.scss']
 })
 export class UserProfileMenuComponent implements OnInit {
-  @Input() menuItems: NbMenuItem[] = this.userProfileMenuService.getMenuItems();
-  @Input() size: NbComponentSize = 'medium';
-  @Input() name: string = this.userProfileMenuService.getName();
-  @Input() title: string = this.userProfileMenuService.getTitle();
-  @Input() badgeText: string = this.userProfileMenuService.getBadgeText();
-  @Input() badgeStatus: NbComponentStatus = 'success';
-  @Input() badgePosition: NbBadgePosition = 'bottom right';
-  @Input() picture: string = this.userProfileMenuService.getPicture();
-  @Input() color: string = '#cccccc';
+  @Input() public menuItems: NbMenuItem[] = this.userProfileMenuService.getMenuItems();
+  @Input() public size: NbComponentSize = 'medium';
+  @Input() public name: string = this.userProfileMenuService.getName();
+  @Input() public title: string = this.userProfileMenuService.getTitle();
+  @Input() public badgeText: string = this.userProfileMenuService.getBadgeText();
+  @Input() public badgeStatus: NbComponentStatus = 'success';
+  @Input() public badgePosition: NbBadgePosition = 'bottom right';
+  @Input() public picture: string = this.userProfileMenuService.getPicture();
+  @Input() public color: string = '#cccccc';
 
-  constructor(
+  public constructor(
     private userProfileMenuService: UserProfileMenuService,
     private nbMenuService: NbMenuService,
     @Inject(NB_WINDOW) private window
   ) {}
 
-  ngOnInit() {
+  public ngOnInit() {
     this.nbMenuService
       .onItemClick()
       .pipe(

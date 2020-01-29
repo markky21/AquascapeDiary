@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { UiAuthModule } from '../../../../../../libs/ui/src/lib/auth/ui-auth.module';
+import { UiAuthModule } from '@aquascape-diary/ui';
 
 @NgModule({
   declarations: [],

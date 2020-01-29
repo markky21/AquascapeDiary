@@ -12,7 +12,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MainHeaderComponent {
-  @Output() sideNavClick = new EventEmitter();
-  @Output() toggleThemeClick = new EventEmitter();
+  @Output() public sideNavClick = new EventEmitter();
+  @Output() public toggleThemeClick = new EventEmitter();
 
 }

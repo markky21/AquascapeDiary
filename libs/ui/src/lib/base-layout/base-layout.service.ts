@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { UITheme } from '../ui.model';
 import { NbThemeService } from '@nebular/theme';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { AppLocation } from '../../../../../apps/ng-aquascape-diary/src/services/app-location.service';
+
+import { AppLocation } from '../services/app-location.service';
+import { UITheme } from '../ui.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,18 +15,18 @@ export class BaseLayoutService {
 
   public currentTheme: UITheme = this.themeService.currentTheme as UITheme;
 
-  constructor(
+  public constructor(
     private themeService: NbThemeService,
     private appLocation: AppLocation
   ) {}
 
-  toggleTheme(): void {
+  public toggleTheme(): void {
     this.currentTheme =
       this.currentTheme === UITheme.light ? UITheme.dark : UITheme.light;
     this.themeService.changeTheme(this.currentTheme);
   }
 
-  handleShowSubheader(): Observable<boolean> {
+  public handleShowSubheader(): Observable<boolean> {
     return this.appLocation.url$.pipe(
       map(route => {
         switch (route) {
@@ -38,7 +39,7 @@ export class BaseLayoutService {
     );
   }
 
-  handleSideNav(): Observable<boolean> {
+  public handleSideNav(): Observable<boolean> {
     return this.appLocation.url$.pipe(
       map(route => {
         switch (route) {

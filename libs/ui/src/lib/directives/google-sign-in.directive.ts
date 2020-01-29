@@ -6,10 +6,10 @@ import * as firebase from 'firebase/app';
   selector: '[aquascapeDiaryGoogleSignIn]'
 })
 export class GoogleSignInDirective {
-  constructor(private angularFireAuth: AngularFireAuth) {}
+  public constructor(private angularFireAuth: AngularFireAuth) {}
 
   @HostListener('click')
-  onclick() {
+  public onclick() {
     console.log('clicked');
     this.angularFireAuth.auth.signInWithPopup(
       new firebase.auth.GoogleAuthProvider()

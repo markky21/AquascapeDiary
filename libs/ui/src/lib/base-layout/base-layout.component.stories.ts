@@ -1,7 +1,9 @@
-import { UiModule } from '../ui.module';
-import { BaseLayoutComponent } from './base-layout.component';
-import { NbThemeModule } from '@nebular/theme';
 import { RouterTestingModule } from '@angular/router/testing';
+import { NbThemeModule } from '@nebular/theme';
+
+import { UiModule } from '../ui.module';
+
+import { BaseLayoutComponent } from './base-layout.component';
 
 export default {
   title: 'BaseLayoutComponent'

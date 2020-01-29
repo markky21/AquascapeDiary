@@ -1,8 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { NbSidebarService, NbThemeService } from '@nebular/theme';
-import { UITheme } from '../ui.model';
-import { BaseLayoutService } from './base-layout.service';
 import { Observable } from 'rxjs';
+
+import { UITheme } from '../ui.model';
+
+import { BaseLayoutService } from './base-layout.service';
 
 @Component({
   selector: 'aquascape-diary-base-layout',
@@ -11,19 +13,19 @@ import { Observable } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BaseLayoutComponent {
-  showSubheader$: Observable<boolean> = this.baseLayoutService.showSubheader$;
-  showSideNav$: Observable<boolean> = this.baseLayoutService.showSideNav$;
+  public showSubheader$: Observable<boolean> = this.baseLayoutService.showSubheader$;
+  public showSideNav$: Observable<boolean> = this.baseLayoutService.showSideNav$;
 
-  constructor(
+  public constructor(
     private baseLayoutService: BaseLayoutService,
     private sidebarService: NbSidebarService
   ) {}
 
-  toggleSideNav(): void {
+  public toggleSideNav(): void {
     this.sidebarService.toggle(true);
   }
 
-  toggleTheme(): void {
+  public toggleTheme(): void {
     this.baseLayoutService.toggleTheme();
   }
 }
