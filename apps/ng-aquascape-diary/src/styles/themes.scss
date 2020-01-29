@@ -1,4 +1,3 @@
-@import '~@nebular/auth/styles/globals';
 @import '~@nebular/theme/styles/theming';
 @import '~@nebular/theme/styles/themes/default';
 @import '~@nebular/theme/styles/themes/dark';
@@ -29,7 +28,8 @@ $nb-themes: nb-register-theme(
   dark
 );
 
+@import '~@nebular/theme/styles/globals';
+
 @include nb-install() {
-  //@include nb-theme-global();
-  @include nb-auth-global(); // append the install mixin inside of the nb-install
-};
+  @include nb-theme-global();
+}

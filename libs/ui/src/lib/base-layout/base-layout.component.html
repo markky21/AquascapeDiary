@@ -2,40 +2,17 @@
   <nb-layout-header fixed>
     <aquascape-diary-main-header
       (sideNavClick)="toggleSideNav()"
+      (toggleThemeClick)="toggleTheme()"
     ></aquascape-diary-main-header>
   </nb-layout-header>
 
-  <nb-layout-header subheader>
-    <nb-actions size="medium">
-      <nb-action
-        icon="color-palette-outline"
-        (click)="toggleTheme()"
-      ></nb-action>
-      <nb-action icon="home-outline"></nb-action>
-      <nb-action icon="search-outline"></nb-action>
-      <nb-action icon="edit-outline"></nb-action>
-      <nb-action icon="search-outline" badgeText="99+" badgeStatus="danger">
-      </nb-action>
-      <nb-action
-        icon="power-outline"
-        badgeText="12"
-        badgePosition="bottom right"
-        badgeStatus="warning"
-      >
-      </nb-action>
-      <nb-action
-        icon="person-outline"
-        badgeText="M"
-        badgePosition="top right"
-        badgeStatus="info"
-      >
-      </nb-action>
-    </nb-actions>
+  <nb-layout-header subheader *ngIf="showSubheader$ | async">
+    <aquascape-diary-base-layout-subheader></aquascape-diary-base-layout-subheader>
   </nb-layout-header>
 
-  <nb-sidebar></nb-sidebar>
+  <nb-sidebar *ngIf="showSideNav$ | async"></nb-sidebar>
 
-  <nb-layout-column class="colored-column-basic"
-    >Layout Content</nb-layout-column
-  >
+  <nb-layout-column class="colored-column-basic">
+    <ng-content></ng-content>
+  </nb-layout-column>
 </nb-layout>

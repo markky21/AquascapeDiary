@@ -17,8 +17,11 @@ import {
   NbUserModule
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
-import { MainHeaderComponent } from './main-header/main-header.component';
+import { MainHeaderComponent } from './base-layout-main-header/main-header.component';
 import { UserProfileMenuComponent } from './user-profile-menu/user-profile-menu.component';
+import { DirectivesModule } from './directives/directives.module';
+import { BaseLayoutSubheaderComponent } from './base-layout-subheader/base-layout-subheader.component';
+import { RouterModule } from '@angular/router';
 
 export const nebularModules = [
   NbEvaIconsModule,
@@ -28,8 +31,7 @@ export const nebularModules = [
   NbThemeModule,
   NbActionsModule,
   NbUserModule,
-  NbContextMenuModule,
-
+  NbContextMenuModule
 ];
 
 @NgModule({
@@ -38,15 +40,19 @@ export const nebularModules = [
     CommonModule,
     NbSidebarModule.forRoot(),
     NbMenuModule.forRoot(),
-    NbThemeModule.forRoot({ name: 'default' })
+    NbThemeModule.forRoot({ name: 'default' }),
+    DirectivesModule,
+    RouterModule
   ],
   declarations: [
     BaseLayoutComponent,
     MainHeaderComponent,
-    UserProfileMenuComponent
+    UserProfileMenuComponent,
+    BaseLayoutSubheaderComponent
   ],
   exports: [
     ...nebularModules,
+    DirectivesModule,
     BaseLayoutComponent,
     MainHeaderComponent,
     UserProfileMenuComponent

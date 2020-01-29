@@ -13,4 +13,6 @@ import {
 })
 export class MainHeaderComponent {
   @Output() sideNavClick = new EventEmitter();
+  @Output() toggleThemeClick = new EventEmitter();
+
 }
