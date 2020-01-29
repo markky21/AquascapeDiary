@@ -4,20 +4,18 @@ import {
   Component
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { NbAuthService, NbLoginComponent } from '@nebular/auth';
+import { NbAuthService, NbRegisterComponent } from '@nebular/auth';
 
 import { AuthError, SubmitAction } from '../auth.model';
 import { AuthService } from '../auth.service';
 import UserCredential = firebase.auth.UserCredential;
 
 @Component({
-  selector: 'aquascape-diary-login',
-  templateUrl: './login.component.html',
+  selector: 'aquascape-diary-register',
+  templateUrl: './register.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LoginComponent extends NbLoginComponent {
-  public redirectDelay: 2000;
-
+export class RegisterComponent extends NbRegisterComponent {
   public constructor(
     private authService: AuthService,
     protected nbAuthService: NbAuthService,
@@ -26,17 +24,16 @@ export class LoginComponent extends NbLoginComponent {
   ) {
     super(nbAuthService, {}, changeDetectorRef, router);
   }
-  public login(): void {
-    this.errors = [];
-    this.messages = [];
+
+  public register(): void {
+    this.errors = this.messages = [];
     this.submitted = true;
 
-    this.authService.onSubmit(this.user, SubmitAction.LOGIN).then(result => {
+    this.authService.onSubmit(this.user, SubmitAction.REGISTER).then(result => {
       this.submitted = false;
 
       if ((result as UserCredential).user) {
-        // TODO Toast Message
-        this.messages = ['Successfully logged!'];
+        this.messages = ['Successfully registered!'];
 
         setTimeout(() => {
           return this.router.navigateByUrl('/diary');

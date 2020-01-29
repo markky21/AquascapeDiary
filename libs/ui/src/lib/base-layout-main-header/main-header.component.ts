@@ -5,6 +5,8 @@ import {
   Output
 } from '@angular/core';
 
+import { BaseLayoutService } from '../base-layout/base-layout.service';
+
 @Component({
   selector: 'aquascape-diary-main-header',
   templateUrl: './main-header.component.html',
@@ -14,5 +16,7 @@ import {
 export class MainHeaderComponent {
   @Output() public sideNavClick = new EventEmitter();
   @Output() public toggleThemeClick = new EventEmitter();
+  public showSideNavButton$ = this.baseLayoutService.showSideNavButton$;
 
+  public constructor(private baseLayoutService: BaseLayoutService) {}
 }

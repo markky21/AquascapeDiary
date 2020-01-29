@@ -2,6 +2,7 @@
   <div class="MainHeader-left">
     <nb-actions size="medium">
       <nb-action
+        *ngIf="showSideNavButton$ | async"
         icon="menu-2-outline"
         (click)="sideNavClick.emit()"
       ></nb-action>

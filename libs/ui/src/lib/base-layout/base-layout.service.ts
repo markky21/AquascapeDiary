@@ -10,8 +10,10 @@ import { UITheme } from '../ui.model';
   providedIn: 'root'
 })
 export class BaseLayoutService {
-  public readonly showSubheader$ = this.handleShowSubheader();
-  public readonly showSideNav$ = this.handleSideNav();
+  public readonly isAppView$ = this.handleIsAppView();
+  public readonly showSubheader$ = this.isAppView$;
+  public readonly showSideNav$ = this.isAppView$;
+  public readonly showSideNavButton$ = this.isAppView$;
 
   public currentTheme: UITheme = this.themeService.currentTheme as UITheme;
 
@@ -27,6 +29,19 @@ export class BaseLayoutService {
   }
 
   public handleShowSubheader(): Observable<boolean> {
+    return this.appLocation.url$.pipe(
+      map(route => {
+        switch (route) {
+          case '/diary':
+            return true;
+          default:
+            return false;
+        }
+      })
+    );
+  }
+
+  public handleIsAppView(): Observable<boolean> {
     return this.appLocation.url$.pipe(
       map(route => {
         switch (route) {
