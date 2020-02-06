@@ -18,7 +18,8 @@
     "paths": {
       "@aquascape-diary/ui": ["libs/ui/src/index.ts"],
       "@ng-aquascape-diary": ["apps/ng-aquascape-diary"],
-      "@api": ["apps/api"]
+      "@api": ["apps/api"],
+      "@aquascape-diary/secrets": ["libs/secrets/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

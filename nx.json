@@ -16,9 +16,7 @@
     },
     "ng-aquascape-diary-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "ng-aquascape-diary"
-      ]
+      "implicitDependencies": ["ng-aquascape-diary"]
     },
     "api": {
       "tags": []
@@ -28,9 +26,10 @@
     },
     "ui-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "ui"
-      ]
+      "implicitDependencies": ["ui"]
+    },
+    "secrets": {
+      "tags": []
     }
   }
 }
