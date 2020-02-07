@@ -1,0 +1,3 @@
+[submodule "libs/secrets"]
+	path = libs/secrets
+	url = https://github.com/markky21/AquascapeDiarySecret.git
