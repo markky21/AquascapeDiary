@@ -11,7 +11,7 @@
     "ng-aquascape-diary:build": "ng build",
     "ng-aquascape-diary:e2e": "ng e2e",
     "ng-aquascape-diary:lint": "nx workspace-lint && ng lint",
-    "ng-aquascape-diary:start": "ng serve",
+    "ng-aquascape-diary:start": "ng serve --proxy-config proxy.config.json",
     "ng-aquascape-diary:start:ssr": "npm run ng-aquascape-diary:build:ssr && npm run ng-aquascape-diary:serve:ssr",
     "ng-aquascape-diary:test": "ng test",
     "ng-aquascape-diary:serve:ssr": "node dist/apps/ng-aquascape-diary/server/server",

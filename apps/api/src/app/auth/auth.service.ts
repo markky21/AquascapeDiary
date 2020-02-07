@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 
 import { UsersService } from '../users/users.service';
+import { User } from '../../interfaces/user.model';
 
 // TODO use a library like bcrypt for hashing password
 @Injectable()
@@ -25,5 +26,9 @@ export class AuthService {
     return {
       access_token: this.jwtService.sign(payload)
     };
+  }
+
+  public async register(user: User) {
+    return this.usersService.addNewUser(user);
   }
 }

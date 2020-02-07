@@ -3,6 +3,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 
 import { jwtModuleOptions } from '../../api.config';
+import { UserModule } from '../user/user.module';
 import { UsersModule } from '../users/users.module';
 
 import { AuthController } from './auth.controller';
@@ -13,6 +14,7 @@ import { LocalStrategyService } from './local.strategy.service';
 @Module({
   imports: [
     UsersModule,
+    UserModule,
     PassportModule.register({ defaultStrategy: 'jwt', session: true }),
     JwtModule.register(jwtModuleOptions)
   ],

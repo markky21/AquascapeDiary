@@ -29,6 +29,10 @@ export class UsersService {
     @InjectConnection() private readonly connection: Connection
   ) {}
 
+  public async addNewUser(user: User): Promise<User> {
+    return this.userModel.create(user);
+  }
+
   public async findOne(username: string): Promise<User> {
     return this.users.find(user => user.username === username);
   }
