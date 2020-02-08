@@ -8,7 +8,6 @@ import { NbAuthService, NbLoginComponent } from '@nebular/auth';
 
 import { AuthError, SubmitAction } from '../auth.model';
 import { AuthService } from '../auth.service';
-import UserCredential = firebase.auth.UserCredential;
 
 @Component({
   selector: 'aquascape-diary-login',
@@ -34,7 +33,7 @@ export class LoginComponent extends NbLoginComponent {
     this.authService.onSubmit(this.user, SubmitAction.LOGIN).then(result => {
       this.submitted = false;
 
-      if ((result as UserCredential).user) {
+     /* if ((result as UserCredential).user) {
         // TODO Toast Message
         this.messages = ['Successfully logged!'];
 
@@ -43,7 +42,7 @@ export class LoginComponent extends NbLoginComponent {
         }, this.redirectDelay);
       } else {
         this.errors = [(result as AuthError).message];
-      }
+      }*/
 
       this.cd.detectChanges();
     });
