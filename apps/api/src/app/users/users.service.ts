@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectConnection, InjectModel } from '@nestjs/mongoose';
-
-import { User, UserDoc, UserModel } from '../../interfaces/user.model';
 import { Connection } from 'mongoose';
+
+import { User, UserModel } from '../../interfaces/user.model';
 
 @Injectable()
 export class UsersService {

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { BehaviorSubject } from 'rxjs';
+
 import { AuthError, SubmitAction } from './auth.model';
 import UserCredential = firebase.auth.UserCredential;
 

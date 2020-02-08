@@ -1,8 +1,10 @@
+import { JWT_SECRET } from '@aquascape-diary/secrets';
 import { Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 
-import { JWT_SECRET } from '../../../../../libs/secrets/src/api/auth.secret';
+
+
 
 
 @Injectable()
