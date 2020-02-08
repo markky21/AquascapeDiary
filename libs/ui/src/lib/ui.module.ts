@@ -60,7 +60,7 @@ export const nebularModules = [
   ]
 })
 export class UiModule {
-  public static forRoot(): ModuleWithProviders {
+  public static forRoot(): ModuleWithProviders<UiModule> {
     return {
       ngModule: UiModule,
       providers: []

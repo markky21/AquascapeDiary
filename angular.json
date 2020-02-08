@@ -20,7 +20,7 @@
             "main": "apps/ng-aquascape-diary/src/main.ts",
             "polyfills": "apps/ng-aquascape-diary/src/polyfills.ts",
             "tsConfig": "apps/ng-aquascape-diary/tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "apps/ng-aquascape-diary/src/favicon.ico",
               "apps/ng-aquascape-diary/src/assets"
@@ -41,7 +41,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -99,7 +98,7 @@
           "builder": "@angular-devkit/build-angular:server",
           "options": {
             "outputPath": "dist/apps/ng-aquascape-diary/server",
-            "main": "apps/ng-aquascape-diary/src/main.server.ts",
+            "main": "apps/ng-aquascape-diary/server.ts",
             "tsConfig": "apps/ng-aquascape-diary/tsconfig.server.json"
           },
           "configurations": {
@@ -111,11 +110,32 @@
                 }
               ],
               "sourceMap": false,
-              "optimization": {
-                "scripts": false,
-                "styles": true
-              }
+              "optimization": true
             }
+          }
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "options": {
+            "browserTarget": "ng-aquascape-diary:build",
+            "serverTarget": "ng-aquascape-diary:server"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ng-aquascape-diary:build:production",
+              "serverTarget": "ng-aquascape-diary:server:production"
+            }
+          }
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "browserTarget": "ng-aquascape-diary:build:production",
+            "serverTarget": "ng-aquascape-diary:server:production",
+            "routes": ["/"]
+          },
+          "configurations": {
+            "production": {}
           }
         }
       }
