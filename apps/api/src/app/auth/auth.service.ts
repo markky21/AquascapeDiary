@@ -1,8 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 
-import { User } from '../../interfaces/user.model';
 import { UsersService } from '../users/users.service';
+import { User } from '../../interfaces/users.model';
+import { UserCreateDto } from '../users/dto/user-create.dto';
 
 // TODO use a library like bcrypt for hashing password
 @Injectable()
@@ -28,7 +29,7 @@ export class AuthService {
     };
   }
 
-  public async register(user: User) {
-    return this.usersService.addNewUser(user);
+  public async register(createUserDto: UserCreateDto): Promise<User> {
+    return this.usersService.create(createUserDto);
   }
 }

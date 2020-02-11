@@ -1,14 +1,12 @@
 import * as mongoose from 'mongoose';
 
-import { Schema } from '../../interfaces/api.model';
-import { User } from '../../interfaces/user.model';
+import { Schema } from '../../../interfaces/api.model';
+import { User } from '../../../interfaces/users.model';
 
 const user: Schema<User> = {
   email: String,
-  name: String,
   password: String,
-  userId: Number,
-  username: String
+  fullName: String
 };
 
 export const UserSchema = new mongoose.Schema(user);

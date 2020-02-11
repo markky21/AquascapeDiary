@@ -1,3 +1,12 @@
-import { User } from './user.model';
+export interface User {
+  email: String;
+  fullName: String;
+  password: String;
+}
 
-export type Users = User[];
+export interface CreateUser
+  extends Pick<User, 'email' | 'password' | 'fullName'> {
+  confirmPassword: string;
+}
+
+export interface LoginUser extends Pick<User, 'email' | 'password'> {}
