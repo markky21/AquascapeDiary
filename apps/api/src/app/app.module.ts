@@ -9,6 +9,7 @@ import { CatsModule } from './cats/cats.module';
 import { UserModule } from './user/user.module';
 import { UsersModule } from './users/users.module';
 import { ValidatorsModule } from './validators/validators.module';
+import { EncryptService } from './services/encrypt.service';
 
 @Module({
   imports: [
@@ -23,6 +24,6 @@ import { ValidatorsModule } from './validators/validators.module';
     ValidatorsModule
   ],
   controllers: [AppController],
-  providers: [AppService]
+  providers: [AppService, EncryptService]
 })
 export class AppModule {}

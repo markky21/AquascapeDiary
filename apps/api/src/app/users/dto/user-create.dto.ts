@@ -7,10 +7,10 @@ import {
   Validate
 } from 'class-validator';
 
-import { CreateUser } from '../../../interfaces/users.model';
+import { UserCreate } from '../../../interfaces/users.model';
 import { IsUserAlreadyExist } from '../validators/is-user-already-exist.validator';
 
-export class UserCreateDto implements CreateUser {
+export class UserCreateDto implements UserCreate {
   @IsNotEmpty()
   @IsEmail()
   @Validate(IsUserAlreadyExist, ['email'], {

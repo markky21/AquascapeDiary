@@ -1,54 +1,10 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import {
-  NbAuthComponent,
-  NbAuthModule,
-  NbLoginComponent,
-  NbLogoutComponent,
-  NbRegisterComponent,
-  NbRequestPasswordComponent,
-  NbResetPasswordComponent
-} from '@nebular/auth';
+import { UiAuthModule } from '@aquascape-diary/ui';
 
-import { nbAuthOptions } from './auth.config';
+import { AuthService } from './auth.service';
 
 @NgModule({
-  declarations: [],
-  imports: [
-    // UiAuthModule
-    RouterModule.forChild([
-      {
-        path: 'auth',
-        component: NbAuthComponent,
-        children: [
-          {
-            path: '',
-            component: NbLoginComponent
-          },
-          {
-            path: 'login',
-            component: NbLoginComponent
-          },
-          {
-            path: 'register',
-            component: NbRegisterComponent
-          },
-          {
-            path: 'logout',
-            component: NbLogoutComponent
-          },
-          {
-            path: 'request-password',
-            component: NbRequestPasswordComponent
-          },
-          {
-            path: 'reset-password',
-            component: NbResetPasswordComponent
-          }
-        ]
-      }
-    ]),
-    NbAuthModule.forRoot(nbAuthOptions)
-  ]
+  imports: [UiAuthModule],
+  providers: [AuthService]
 })
 export class AuthModule {}

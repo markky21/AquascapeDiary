@@ -14,6 +14,7 @@ import {
 import { DirectivesModule } from '../directives/directives.module';
 
 import { AuthRoutingModule } from './auth-routing.module';
+import { nbAuthOptions } from './auth.config';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
@@ -23,7 +24,7 @@ import { RegisterComponent } from './register/register.component';
     CommonModule,
     FormsModule,
     NbAlertModule,
-    NbAuthModule.forRoot(),
+    NbAuthModule.forRoot(nbAuthOptions),
     NbButtonModule,
     NbCheckboxModule,
     NbInputModule,
@@ -31,6 +32,7 @@ import { RegisterComponent } from './register/register.component';
     DirectivesModule,
     NbIconModule
   ],
-  declarations: [LoginComponent, RegisterComponent]
+  declarations: [LoginComponent, RegisterComponent],
+  exports: [NbAuthModule]
 })
 export class UiAuthModule {}
