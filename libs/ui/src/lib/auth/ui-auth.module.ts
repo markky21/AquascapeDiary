@@ -8,7 +8,7 @@ import {
   NbButtonModule,
   NbCheckboxModule,
   NbIconModule,
-  NbInputModule
+  NbInputModule, NbLayoutModule
 } from '@nebular/theme';
 
 import { DirectivesModule } from '../directives/directives.module';
@@ -16,6 +16,8 @@ import { DirectivesModule } from '../directives/directives.module';
 import { AuthRoutingModule } from './auth-routing.module';
 import { nbAuthOptions } from './auth.config';
 import { LoginComponent } from './login/login.component';
+import { Oauth2CallbackComponent } from './oauth2-callback/oauth2-callback.component';
+import { OAuth2LoginComponent } from './oauth2-login/oauth2-login.component';
 import { RegisterComponent } from './register/register.component';
 
 @NgModule({
@@ -30,9 +32,15 @@ import { RegisterComponent } from './register/register.component';
     NbInputModule,
     RouterModule,
     DirectivesModule,
-    NbIconModule
+    NbIconModule,
+    NbLayoutModule
   ],
-  declarations: [LoginComponent, RegisterComponent],
+  declarations: [
+    LoginComponent,
+    RegisterComponent,
+    OAuth2LoginComponent,
+    Oauth2CallbackComponent
+  ],
   exports: [NbAuthModule]
 })
 export class UiAuthModule {}

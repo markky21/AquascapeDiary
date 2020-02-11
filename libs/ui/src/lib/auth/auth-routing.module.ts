@@ -9,6 +9,8 @@ import {
 
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { OAuth2LoginComponent } from './oauth2-login/oauth2-login.component';
+import { Oauth2CallbackComponent } from './oauth2-callback/oauth2-callback.component';
 
 export const routes: Routes = [
   {
@@ -38,6 +40,14 @@ export const routes: Routes = [
       {
         path: 'reset-password',
         component: NbResetPasswordComponent
+      },
+      {
+        path: 'oauth2',
+        component: OAuth2LoginComponent,
+        children: [
+          { path: '', component: OAuth2LoginComponent },
+          { path: 'callback', component: Oauth2CallbackComponent }
+        ]
       }
     ]
   }
