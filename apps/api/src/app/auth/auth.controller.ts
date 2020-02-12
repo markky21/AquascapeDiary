@@ -4,6 +4,7 @@ import {
   Get,
   Post,
   Request,
+  Response,
   UseGuards
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
@@ -34,9 +35,10 @@ export class AuthController {
     return this.authService.register(userCreateDto);
   }
 
-  @Get('logout')
-  public logout(): void {
-    return;
+  @Post('logout')
+  public logout(@Request() req, @Response() res) {
+    req.logOut();
+    res.send({ status: 'OK' });
   }
 
   @Get('request-password')

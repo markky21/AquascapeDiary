@@ -1,15 +1,16 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import {
-  NB_WINDOW,
   NbBadgePosition,
   NbComponentSize,
   NbComponentStatus,
-  NbMenuService
+  NbMenuService,
+  NB_WINDOW
 } from '@nebular/theme';
 import { NbMenuItem } from '@nebular/theme/components/menu/menu.service';
-import { filter, map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { filter, map, tap } from 'rxjs/operators';
 
-import { UserProfileMenuService } from './user-profile-menu.service';
+import { UserProfileMenuAbstractService } from './user-profile-menu.abstract.service';
 
 @Component({
   selector: 'aquascape-diary-user-profile-menu',
@@ -17,29 +18,37 @@ import { UserProfileMenuService } from './user-profile-menu.service';
   styleUrls: ['./user-profile-menu.component.scss']
 })
 export class UserProfileMenuComponent implements OnInit {
-  @Input() public menuItems: NbMenuItem[] = this.userProfileMenuService.getMenuItems();
+  @Input() public menuItems$: Observable<NbMenuItem[]>;
+  @Input() public name$: Observable<string>;
+  @Input() public title$: Observable<string>;
+  @Input() public badgeText$: Observable<string>;
+  @Input() public picture$: Observable<string>;
+
   @Input() public size: NbComponentSize = 'medium';
-  @Input() public name: string = this.userProfileMenuService.getName();
-  @Input() public title: string = this.userProfileMenuService.getTitle();
-  @Input() public badgeText: string = this.userProfileMenuService.getBadgeText();
   @Input() public badgeStatus: NbComponentStatus = 'success';
   @Input() public badgePosition: NbBadgePosition = 'bottom right';
-  @Input() public picture: string = this.userProfileMenuService.getPicture();
   @Input() public color: string = '#cccccc';
 
   public constructor(
-    private userProfileMenuService: UserProfileMenuService,
+    private userProfileMenuService: UserProfileMenuAbstractService,
     private nbMenuService: NbMenuService,
     @Inject(NB_WINDOW) private window
-  ) {}
+  ) {
+    this.menuItems$ = this.userProfileMenuService.getMenuItems$();
+    this.name$ = this.userProfileMenuService.getName$();
+    this.title$ = this.userProfileMenuService.getTitle$();
+    this.badgeText$ = this.userProfileMenuService.getBadgeText$();
+    this.picture$ = this.userProfileMenuService.getPicture$();
+  }
 
   public ngOnInit() {
     this.nbMenuService
       .onItemClick()
       .pipe(
         filter(({ tag }) => tag === 'my-context-menu'),
-        map(({ item: { title } }) => title)
+        map(({ item: { title } }) => title),
+        tap(title => this.userProfileMenuService.onMenuItemClick(title))
       )
-      .subscribe(title => this.window.alert(`${title} was clicked!`));
+      .subscribe();
   }
 }

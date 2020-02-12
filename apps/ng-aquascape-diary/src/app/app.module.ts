@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './modules/auth/auth.module';
 import { HomePageModule } from './pages/home-page/home-page.module';
+import { UiServicesModule } from './services/ui-services/ui-services.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,7 +19,8 @@ import { HomePageModule } from './pages/home-page/home-page.module';
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     HttpClientModule,
     UiModule,
-    HomePageModule
+    HomePageModule,
+    UiServicesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

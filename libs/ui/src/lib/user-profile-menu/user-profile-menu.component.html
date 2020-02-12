@@ -1,13 +1,13 @@
 <nb-user
   [size]="size"
-  [name]="name"
-  [title]="title"
-  [badgeText]="badgeText"
+  [name]="name$ | async"
+  [title]="title$ | async"
+  [badgeText]="badgeText$ | async"
   [badgeStatus]="badgeStatus"
   [badgePosition]="badgePosition"
-  [picture]="picture"
+  [picture]="picture$ | async"
   [color]="color"
-  [nbContextMenu]="menuItems"
+  [nbContextMenu]="menuItems$ | async"
   nbContextMenuTag="my-context-menu"
 >
 </nb-user>

@@ -1,4 +1,6 @@
+import { OAUTH2_SECRET } from '@aquascape-diary/secrets';
 import {
+  NbAuthJWTToken,
   NbOAuth2AuthStrategy,
   NbOAuth2ResponseType,
   NbPasswordAuthStrategy
@@ -8,13 +10,30 @@ import { NbAuthOptions } from '@nebular/auth/auth.options';
 export const nbAuthOptions: NbAuthOptions = {
   strategies: [
     NbPasswordAuthStrategy.setup({
-      name: 'email'
+      name: 'email',
+      login: {
+        redirect: {
+          success: '/diary',
+          failure: null
+        }
+      },
+      logout: {
+        method: 'post',
+        redirect: {
+          success: '/',
+          failure: null
+        }
+      },
+      token: {
+        class: NbAuthJWTToken,
+        key: 'access_token'
+      }
     }),
     NbOAuth2AuthStrategy.setup({
       name: 'google',
       clientId:
         '945901052792-g8qrq7qdeeusfticlf3uk0r62uulqdv5.apps.googleusercontent.com',
-      clientSecret: 'ck_wXobY_CuMaU9Ku5u0uGgG',
+      clientSecret: OAUTH2_SECRET.clientSecret,
       authorize: {
         endpoint: 'https://accounts.google.com/o/oauth2/v2/auth',
         responseType: NbOAuth2ResponseType.TOKEN,

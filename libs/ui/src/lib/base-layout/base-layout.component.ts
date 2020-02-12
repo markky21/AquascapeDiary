@@ -1,8 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { NbSidebarService, NbThemeService } from '@nebular/theme';
+import { NbSidebarService } from '@nebular/theme';
 import { Observable } from 'rxjs';
-
-import { UITheme } from '../ui.model';
 
 import { BaseLayoutService } from './base-layout.service';
 
@@ -13,8 +11,10 @@ import { BaseLayoutService } from './base-layout.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BaseLayoutComponent {
-  public showSubheader$: Observable<boolean> = this.baseLayoutService.showSubheader$;
-  public showSideNav$: Observable<boolean> = this.baseLayoutService.showSideNav$;
+  public showSubheader$: Observable<boolean> = this.baseLayoutService
+    .showSubheader$;
+  public showSideNav$: Observable<boolean> = this.baseLayoutService
+    .showSideNav$;
 
   public constructor(
     private baseLayoutService: BaseLayoutService,
