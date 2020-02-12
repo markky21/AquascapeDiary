@@ -13,39 +13,42 @@ import {
   NbIconModule,
   NbLayoutModule,
   NbMenuModule,
+  NbOverlayContainerAdapter,
   NbSidebarModule,
-  NbThemeModule, NbToastrModule,
+  NbThemeModule,
+  NbToastrModule,
   NbUserModule
 } from '@nebular/theme';
 
 import { MainHeaderComponent } from './base-layout-main-header/main-header.component';
 import { BaseLayoutSubheaderComponent } from './base-layout-subheader/base-layout-subheader.component';
 import { BaseLayoutComponent } from './base-layout/base-layout.component';
+import { NbOverlayContainerAdapterSub } from './components/nb-layout/nb-layout.component';
 import { DirectivesModule } from './directives/directives.module';
 import { UserProfileMenuAbstractService } from './user-profile-menu/user-profile-menu.abstract.service';
 import { UserProfileMenuComponent } from './user-profile-menu/user-profile-menu.component';
 import { UserProfileMenuStubService } from './user-profile-menu/user-profile-menu.stub.service';
 
 export const nebularModules = [
+  NbActionsModule,
+  NbContextMenuModule,
   NbEvaIconsModule,
   NbIconModule,
   NbLayoutModule,
   NbSidebarModule,
   NbThemeModule,
-  NbActionsModule,
-  NbUserModule,
-  NbContextMenuModule
+  NbUserModule
 ];
 
 @NgModule({
   imports: [
     ...nebularModules,
     CommonModule,
-    NbSidebarModule.forRoot(),
+    DirectivesModule,
     NbMenuModule.forRoot(),
+    NbSidebarModule.forRoot(),
     NbThemeModule.forRoot({ name: 'default' }),
     NbToastrModule.forRoot(),
-    DirectivesModule,
     RouterModule
   ],
   declarations: [
@@ -58,6 +61,10 @@ export const nebularModules = [
     {
       provide: UserProfileMenuAbstractService,
       useClass: UserProfileMenuStubService
+    },
+    {
+      provide: NbOverlayContainerAdapter,
+      useClass: NbOverlayContainerAdapterSub
     }
   ],
   exports: [

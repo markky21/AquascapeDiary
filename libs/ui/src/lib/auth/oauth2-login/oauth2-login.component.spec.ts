@@ -8,9 +8,8 @@ describe('OAuth2LoginComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OAuth2LoginComponent ]
-    })
-    .compileComponents();
+      declarations: [OAuth2LoginComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

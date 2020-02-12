@@ -8,9 +8,8 @@ describe('UserProfileMenuComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserProfileMenuComponent ]
-    })
-    .compileComponents();
+      declarations: [UserProfileMenuComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

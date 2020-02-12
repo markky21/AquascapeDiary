@@ -8,9 +8,8 @@ describe('Oauth2CallbackComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ Oauth2CallbackComponent ]
-    })
-    .compileComponents();
+      declarations: [Oauth2CallbackComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

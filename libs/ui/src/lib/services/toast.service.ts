@@ -22,7 +22,10 @@ export class ToastService {
     title?: any,
     config?: Partial<NbToastrConfig>
   ): NbToastRef {
-    return this.toastrService.danger(message, title, { destroyByClick: true, ...config });
+    return this.toastrService.danger(message, title, {
+      destroyByClick: true,
+      ...config
+    });
   }
 
   public warning(

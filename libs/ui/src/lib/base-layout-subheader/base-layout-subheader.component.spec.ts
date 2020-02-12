@@ -8,9 +8,8 @@ describe('BaseLayoutSubheaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BaseLayoutSubheaderComponent ]
-    })
-    .compileComponents();
+      declarations: [BaseLayoutSubheaderComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

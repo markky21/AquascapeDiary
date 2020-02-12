@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
 import { NbSidebarService } from '@nebular/theme';
 import { Observable } from 'rxjs';
 
@@ -10,7 +10,7 @@ import { BaseLayoutService } from './base-layout.service';
   styleUrls: ['./base-layout.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BaseLayoutComponent {
+export class BaseLayoutComponent implements OnDestroy {
   public showSubheader$: Observable<boolean> = this.baseLayoutService
     .showSubheader$;
   public showSideNav$: Observable<boolean> = this.baseLayoutService
@@ -27,5 +27,9 @@ export class BaseLayoutComponent {
 
   public toggleTheme(): void {
     this.baseLayoutService.toggleTheme();
+  }
+
+  public ngOnDestroy(): void {
+    debugger;
   }
 }

@@ -11,7 +11,11 @@ export default {
 
 export const primary = () => ({
   moduleMetadata: {
-    imports: [UiModule, NbThemeModule.forRoot({ name: 'default' }), RouterTestingModule]
+    imports: [
+      UiModule,
+      NbThemeModule.forRoot({ name: 'default' }),
+      RouterTestingModule
+    ]
   },
   component: BaseLayoutComponent,
   props: {}

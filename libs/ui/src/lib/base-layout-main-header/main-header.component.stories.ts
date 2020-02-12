@@ -11,10 +11,7 @@ export default {
 
 export const primary = () => ({
   moduleMetadata: {
-    imports: [
-      UiModule,
-      RouterTestingModule,
-    ]
+    imports: [UiModule, RouterTestingModule]
   },
   component: MainHeaderComponent,
   props: {}

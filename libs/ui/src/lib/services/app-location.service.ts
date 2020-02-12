@@ -12,7 +12,7 @@ export class AppLocation {
     map(() => this.location.path()),
     distinctUntilChanged(),
     shareReplay(),
-    tap(l => console.log('location', l)),
+    tap(l => console.log('location', l))
   );
 
   public constructor(private router: Router, private location: Location) {}

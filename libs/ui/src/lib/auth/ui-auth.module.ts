@@ -8,7 +8,8 @@ import {
   NbButtonModule,
   NbCheckboxModule,
   NbIconModule,
-  NbInputModule, NbLayoutModule
+  NbInputModule,
+  NbLayoutModule
 } from '@nebular/theme';
 
 import { DirectivesModule } from '../directives/directives.module';
