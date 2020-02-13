@@ -3,10 +3,8 @@ import { Router } from '@angular/router';
 import { ToastService } from '@aquascape-diary/ui';
 import { NbAuthService } from '@nebular/auth';
 import { NbAuthResult } from '@nebular/auth/services/auth-result';
-import { Observable, timer } from 'rxjs';
+import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-
-import { TIME_REDIRECT_AFTER_MESSAGE } from '../../app.config';
 
 @Injectable({
   providedIn: 'root'
@@ -25,16 +23,11 @@ export class AppAuthService {
           ? this.toastService.success(response.getMessages(), 'Bye!')
           : this.toastService.danger(response.getMessages(), 'Upss..');
       }),
-      tap(response => {
-        response.isSuccess() &&
-          timer(TIME_REDIRECT_AFTER_MESSAGE).subscribe(() =>
-            this.router.navigate(['/'])
-          );
-      })
+      tap(response => response.isSuccess() && this.router.navigate(['/']))
     );
   }
 
-  public isAuthenticated(): Observable<boolean> {
-    return this.nbAuthService.isAuthenticated();
+  public onAuthenticationChange(): Observable<boolean> {
+    return this.nbAuthService.onAuthenticationChange();
   }
 }

@@ -1,7 +1,9 @@
+import { Injectable } from '@angular/core';
 import { NbOverlayContainerAdapter } from '@nebular/theme';
 
+@Injectable()
 export class NbOverlayContainerAdapterSub extends NbOverlayContainerAdapter {
-  public setContainer(container) {
+  public setContainer(container: HTMLElement): void {
     this.container = container;
   }
   public clearContainer() {

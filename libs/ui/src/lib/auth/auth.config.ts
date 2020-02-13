@@ -42,5 +42,5 @@ export const nbAuthOptions: NbAuthOptions = {
       }
     })
   ],
-  forms: {}
+  forms: { login: { redirectDelay: 3000 } }
 };

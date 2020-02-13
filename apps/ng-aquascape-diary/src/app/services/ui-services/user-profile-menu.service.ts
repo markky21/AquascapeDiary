@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserProfileMenuAbstractService } from '@aquascape-diary/ui';
-import { NbAuthService } from '@nebular/auth';
 import { NbMenuItem } from '@nebular/theme';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Route, Router } from '@angular/router';
+
 import { AppAuthService } from '../../modules/auth/app-auth.service';
 
 enum MenuItem {
   PROFILE = 'Profile',
   LOGOUT = 'Logout',
-  LOGIN = 'Log in'
+  LOGIN = 'Log in',
+  REGISTER = 'Register'
 }
 
 @Injectable()
@@ -19,7 +20,10 @@ export class UserProfileMenuService extends UserProfileMenuAbstractService {
     { title: MenuItem.PROFILE },
     { title: MenuItem.LOGOUT }
   ];
-  private menuItemsWhenNotAuth: NbMenuItem[] = [{ title: MenuItem.LOGIN }];
+  private menuItemsWhenNotAuth: NbMenuItem[] = [
+    { title: MenuItem.LOGIN },
+    { title: MenuItem.REGISTER }
+  ];
 
   public constructor(
     private appAuthService: AppAuthService,
@@ -30,7 +34,7 @@ export class UserProfileMenuService extends UserProfileMenuAbstractService {
 
   public getMenuItems$(): Observable<NbMenuItem[]> {
     return this.appAuthService
-      .isAuthenticated()
+      .onAuthenticationChange()
       .pipe(
         map(isAuth =>
           isAuth ? this.menuItemsWhenAuth : this.menuItemsWhenNotAuth
@@ -57,6 +61,9 @@ export class UserProfileMenuService extends UserProfileMenuAbstractService {
         break;
       case MenuItem.LOGIN:
         this.router.navigate(['auth/login']);
+        break;
+      case MenuItem.REGISTER:
+        this.router.navigate(['auth/register']);
         break;
     }
   }

@@ -6,6 +6,7 @@ import {
   SkipSelf
 } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { NbAuthService, NbTokenService } from '@nebular/auth';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import {
   NbActionsModule,
@@ -23,8 +24,8 @@ import {
 import { MainHeaderComponent } from './base-layout-main-header/main-header.component';
 import { BaseLayoutSubheaderComponent } from './base-layout-subheader/base-layout-subheader.component';
 import { BaseLayoutComponent } from './base-layout/base-layout.component';
-import { NbOverlayContainerAdapterSub } from './components/nb-layout/nb-layout.component';
 import { DirectivesModule } from './directives/directives.module';
+import { NbOverlayContainerAdapterSub } from './services/nb-layout.service';
 import { UserProfileMenuAbstractService } from './user-profile-menu/user-profile-menu.abstract.service';
 import { UserProfileMenuComponent } from './user-profile-menu/user-profile-menu.component';
 import { UserProfileMenuStubService } from './user-profile-menu/user-profile-menu.stub.service';
