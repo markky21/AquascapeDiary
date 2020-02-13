@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserProfileMenuAbstractService } from '@aquascape-diary/ui';
+import { NbAuthService } from '@nebular/auth';
 import { NbMenuItem } from '@nebular/theme';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
-
-import { AppAuthService } from '../../modules/auth/app-auth.service';
 
 enum MenuItem {
   PROFILE = 'Profile',
@@ -26,14 +25,14 @@ export class UserProfileMenuService extends UserProfileMenuAbstractService {
   ];
 
   public constructor(
-    private appAuthService: AppAuthService,
+    private nbAuthService: NbAuthService,
     private router: Router
   ) {
     super();
   }
 
   public getMenuItems$(): Observable<NbMenuItem[]> {
-    return this.appAuthService
+    return this.nbAuthService
       .onAuthenticationChange()
       .pipe(
         map(isAuth =>
@@ -57,7 +56,7 @@ export class UserProfileMenuService extends UserProfileMenuAbstractService {
   public onMenuItemClick(menuItem: MenuItem): void {
     switch (menuItem) {
       case MenuItem.LOGOUT:
-        this.appAuthService.logout('email').subscribe(console.log);
+        this.nbAuthService.logout('email').subscribe(console.log);
         break;
       case MenuItem.LOGIN:
         this.router.navigate(['auth/login']);

@@ -2,7 +2,6 @@
 Modules
  */
 export * from './lib/ui.module';
-export * from './lib/auth/ui-auth.module';
 /*
 Services
  */
@@ -16,4 +15,3 @@ export * from './lib/animations/router.animation';
 /*
 Configs
  */
-export * from './lib/auth/auth.config';

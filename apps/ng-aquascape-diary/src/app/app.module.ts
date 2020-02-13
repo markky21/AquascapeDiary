@@ -20,7 +20,7 @@ import { UiServicesModule } from './services/ui-services/ui-services.module';
     HttpClientModule,
     UiModule,
     HomePageModule,
-    UiServicesModule
+    UiServicesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
