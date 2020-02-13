@@ -13,7 +13,6 @@ import {
   NbIconModule,
   NbLayoutModule,
   NbMenuModule,
-  NbOverlayContainerAdapter,
   NbSidebarModule,
   NbThemeModule,
   NbToastrModule,
@@ -23,7 +22,6 @@ import {
 import { MainHeaderComponent } from './base-layout-main-header/main-header.component';
 import { BaseLayoutSubheaderComponent } from './base-layout-subheader/base-layout-subheader.component';
 import { BaseLayoutComponent } from './base-layout/base-layout.component';
-import { DirectivesModule } from './directives/directives.module';
 import { UserProfileMenuAbstractService } from './user-profile-menu/user-profile-menu.abstract.service';
 import { UserProfileMenuComponent } from './user-profile-menu/user-profile-menu.component';
 import { UserProfileMenuStubService } from './user-profile-menu/user-profile-menu.stub.service';
@@ -43,7 +41,6 @@ export const nebularModules = [
   imports: [
     ...nebularModules,
     CommonModule,
-    DirectivesModule,
     NbMenuModule.forRoot(),
     NbSidebarModule.forRoot(),
     NbThemeModule.forRoot({ name: 'default' }),
@@ -64,7 +61,6 @@ export const nebularModules = [
   ],
   exports: [
     ...nebularModules,
-    DirectivesModule,
     BaseLayoutComponent,
     MainHeaderComponent,
     UserProfileMenuComponent
