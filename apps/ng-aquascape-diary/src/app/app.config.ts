@@ -1,1 +1,0 @@
-export const TIME_REDIRECT_AFTER_MESSAGE = 3000;

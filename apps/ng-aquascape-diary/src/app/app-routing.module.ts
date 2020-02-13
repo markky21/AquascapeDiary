@@ -1,35 +1,59 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { NbAuthComponent } from '@nebular/auth';
-
-import { AuthGuardService } from './modules/auth/auth-guard.service';
-import { authRoutes } from './modules/auth/auth.routing';
+import { ExtraOptions, RouterModule, Routes } from '@angular/router';
+import {
+  NbAuthComponent,
+  NbLoginComponent,
+  NbLogoutComponent,
+  NbRegisterComponent,
+  NbRequestPasswordComponent,
+  NbResetPasswordComponent
+} from '@nebular/auth';
 
 const routes: Routes = [
   {
-    path: '',
-    loadChildren: () =>
-      import('./pages/home-page/home-page.module').then(m => m.HomePageModule)
+    path: 'pages',
+    loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)
   },
   {
     path: 'auth',
     component: NbAuthComponent,
-    children: authRoutes
+    children: [
+      {
+        path: '',
+        component: NbLoginComponent
+      },
+      {
+        path: 'login',
+        component: NbLoginComponent
+      },
+      {
+        path: 'register',
+        component: NbRegisterComponent
+      },
+      {
+        path: 'logout',
+        component: NbLogoutComponent
+      },
+      {
+        path: 'request-password',
+        component: NbRequestPasswordComponent
+      },
+      {
+        path: 'reset-password',
+        component: NbResetPasswordComponent
+      }
+    ]
   },
-  {
-    path: 'diary',
-    loadChildren: () =>
-      import('./pages/diary/diary.module').then(m => m.DiaryModule),
-    canActivate: [AuthGuardService]
-  }
+  { path: '', redirectTo: 'pages', pathMatch: 'full' },
+  { path: '**', redirectTo: 'pages' }
 ];
 
+const config: ExtraOptions = {
+  useHash: false
+};
+
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes, {
-      initialNavigation: 'enabled'
-    })
-  ],
+  imports: [RouterModule.forRoot(routes, config)],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}

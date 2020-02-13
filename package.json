@@ -56,6 +56,8 @@
     "@angular/platform-browser-dynamic": "^9.0.0",
     "@angular/platform-server": "^9.0.0",
     "@angular/router": "^9.0.0",
+    "@datorama/akita": "^4.19.2",
+    "@datorama/akita-ngdevtools": "^3.0.2",
     "@nebular/auth": "^4.6.0",
     "@nebular/eva-icons": "^4.6.0",
     "@nebular/security": "^4.6.0",
@@ -71,6 +73,7 @@
     "@nrwl/angular": "8.12.2",
     "@types/bcrypt": "^3.0.0",
     "bcrypt": "^3.0.8",
+    "bootstrap": "4.3.1",
     "class-transformer": "^0.2.3",
     "class-validator": "^0.11.0",
     "core-js": "^3.6.4",
@@ -134,5 +137,11 @@
     "tslint": "~6.0.0",
     "typescript": "~3.7.5",
     "webpack-cli": "^3.1.0"
+  },
+  "akitaCli": {
+    "idKey": "_id",
+    "customFolderName": "true",
+    "template": "angular",
+    "basePath": "./apps/ng-aquascape-diary/src/app/"
   }
 }

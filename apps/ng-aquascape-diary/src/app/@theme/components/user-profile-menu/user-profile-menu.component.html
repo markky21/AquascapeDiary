@@ -1,0 +1,24 @@
+<nb-user
+  *ngIf="isAuthenticated$ | async; else anonymous"
+  [size]="size"
+  [name]="name$ | async"
+  [title]="title$ | async"
+  [badgeText]="badgeText$ | async"
+  [badgeStatus]="badgeStatus"
+  [badgePosition]="badgePosition"
+  [picture]="picture$ | async"
+  [color]="color"
+  [nbContextMenu]="menuItems$ | async"
+  nbContextMenuTag="my-context-menu"
+>
+</nb-user>
+
+<ng-template #anonymous>
+  <nb-actions [size]="'medium'">
+    <nb-action
+      icon="person-outline"
+      [nbContextMenu]="menuItems$ | async"
+      nbContextMenuTag="my-context-menu"
+    ></nb-action>
+  </nb-actions>
+</ng-template>

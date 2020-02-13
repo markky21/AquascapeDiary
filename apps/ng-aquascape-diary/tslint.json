@@ -1,7 +1,13 @@
 {
   "extends": "../../tslint.json",
   "rules": {
-    "directive-selector": [true, "attribute", "aquascapeDiary", "camelCase"],
-    "component-selector": [true, "element", "aquascape-diary", "kebab-case"]
+    "directive-selector": [true, "attribute", "aquaDiary", "camelCase"],
+    "component-selector": [
+      true,
+      "element",
+      "diary",
+      "kebab-case",
+      "aquascape-diary"
+    ]
   }
 }
