@@ -10,10 +10,10 @@ import {
   NbThemeService
 } from '@nebular/theme';
 import { Observable, Subject } from 'rxjs';
-import { tap } from 'rxjs/operators';
 
 import { Theme } from '../../../@core/models/core.model';
 import { LayoutService } from '../../../@core/services/layout.service';
+import { UiQuery } from '../../../@core/store/ui';
 
 @Component({
   selector: 'ngx-header',
@@ -22,21 +22,18 @@ import { LayoutService } from '../../../@core/services/layout.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-  public showSideBar$: Observable<boolean>;
+  public showSideBar$: Observable<boolean> = this.uiQuery.layout_showSideBar$;
   private readonly destroy$: Subject<void> = new Subject();
 
   public constructor(
     private sidebarService: NbSidebarService,
     private menuService: NbMenuService,
     private themeService: NbThemeService,
-    private layoutService: LayoutService
+    private layoutService: LayoutService,
+    private uiQuery: UiQuery
   ) {}
 
-  public ngOnInit() {
-    this.showSideBar$ = this.layoutService
-      .getShowSideBar$()
-      .pipe(tap(console.log));
-  }
+  public ngOnInit() {}
 
   public ngOnDestroy() {
     this.destroy$.next();

@@ -8,9 +8,9 @@ import { UiStore } from './ui.store';
 export class UiService {
   public constructor(private uiStore: UiStore, private http: HttpClient) {}
 
-  public get() {
-    return this.http
-      .get('')
-      .pipe(tap(entities => this.uiStore.update(entities)));
-  }
+  // public get() {
+  //   return this.http
+  //     .get('')
+  //     .pipe(tap(entities => this.uiStore.update(entities)));
+  // }
 }

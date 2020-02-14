@@ -2,7 +2,11 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({ name: 'ngxPlural' })
 export class PluralPipe implements PipeTransform {
-  public transform(input: number, label: string, pluralLabel: string = ''): string {
+  public transform(
+    input: number,
+    label: string,
+    pluralLabel: string = ''
+  ): string {
     input = input || 0;
     return input === 1
       ? `${input} ${label}`

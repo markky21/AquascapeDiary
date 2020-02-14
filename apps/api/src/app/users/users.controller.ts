@@ -8,8 +8,8 @@ import {
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 
-import { UsersService } from './users.service';
 import { UserCreateDto } from './dto/user-create.dto';
+import { UsersService } from './users.service';
 
 @Controller('users')
 export class UsersController {

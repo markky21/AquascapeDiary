@@ -1,13 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Store, StoreConfig } from '@datorama/akita';
+import { NbMenuItem } from '@nebular/theme';
+
+import { MENU_ITEMS } from '../../../pages/pages-menu';
+import { deepCopy } from '../../utils/deep-copy.operator';
 
 export interface UiState {
-  key: string;
+  layout_showSideBar: boolean;
+  menu_items: NbMenuItem[];
 }
 
 export function createInitialState(): UiState {
   return {
-    key: ''
+    layout_showSideBar: false,
+    menu_items: MENU_ITEMS
   };
 }
 

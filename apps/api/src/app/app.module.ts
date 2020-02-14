@@ -6,10 +6,10 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { CatsModule } from './cats/cats.module';
+import { EncryptService } from './services/encrypt.service';
 import { UserModule } from './user/user.module';
 import { UsersModule } from './users/users.module';
 import { ValidatorsModule } from './validators/validators.module';
-import { EncryptService } from './services/encrypt.service';
 
 @Module({
   imports: [

@@ -10,6 +10,6 @@ export interface UserCreate
   confirmPassword: string;
 }
 
-export interface UserLogin extends Pick<User, 'email' | 'password'> {}
+export type UserLogin = Pick<User, 'email' | 'password'>;
 
-export interface UserLogged extends Pick<User, 'email' | 'fullName' | '_id'> {}
+export type UserLogged = Pick<User, 'email' | 'fullName' | '_id'>;

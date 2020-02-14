@@ -1,20 +1,10 @@
 import { JWT_SECRET } from '@aquascape-diary/secrets';
-import {
-  HttpException,
-  HttpStatus,
-  Injectable,
-  UnauthorizedException
-} from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
-import {
-  ExtractJwt,
-  Strategy,
-  VerifiedCallback,
-  VerifyCallback
-} from 'passport-jwt';
+import { ExtractJwt, Strategy, VerifiedCallback } from 'passport-jwt';
 
+import { UserLogged } from '../../interfaces/users.model';
 import { AuthService } from './auth.service';
-import { UserLogged, UserLogin } from '../../interfaces/users.model';
 
 @Injectable()
 export class JwtStrategyService extends PassportStrategy(Strategy) {

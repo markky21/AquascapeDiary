@@ -1,11 +1,11 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { NbAuthService } from '@nebular/auth';
 import {
+  NB_WINDOW,
   NbBadgePosition,
   NbComponentSize,
   NbComponentStatus,
-  NbMenuService,
-  NB_WINDOW
+  NbMenuService
 } from '@nebular/theme';
 import { NbMenuItem } from '@nebular/theme/components/menu/menu.service';
 import { Observable } from 'rxjs';

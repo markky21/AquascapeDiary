@@ -19,9 +19,6 @@ import {
   NbUserModule
 } from '@nebular/theme';
 
-import { MainHeaderComponent } from './base-layout-main-header/main-header.component';
-import { BaseLayoutSubheaderComponent } from './base-layout-subheader/base-layout-subheader.component';
-import { BaseLayoutComponent } from './base-layout/base-layout.component';
 import { UserProfileMenuAbstractService } from './user-profile-menu/user-profile-menu.abstract.service';
 import { UserProfileMenuComponent } from './user-profile-menu/user-profile-menu.component';
 import { UserProfileMenuStubService } from './user-profile-menu/user-profile-menu.stub.service';
@@ -47,24 +44,14 @@ export const nebularModules = [
     NbToastrModule.forRoot(),
     RouterModule
   ],
-  declarations: [
-    BaseLayoutComponent,
-    MainHeaderComponent,
-    UserProfileMenuComponent,
-    BaseLayoutSubheaderComponent
-  ],
+  declarations: [UserProfileMenuComponent],
   providers: [
     {
       provide: UserProfileMenuAbstractService,
       useClass: UserProfileMenuStubService
     }
   ],
-  exports: [
-    ...nebularModules,
-    BaseLayoutComponent,
-    MainHeaderComponent,
-    UserProfileMenuComponent
-  ]
+  exports: [...nebularModules, UserProfileMenuComponent]
 })
 export class UiModule {
   public static forRoot(): ModuleWithProviders<UiModule> {
