@@ -13,18 +13,22 @@ export class UsersService {
     @InjectModel('User') private readonly userModel: UserModel
   ) {}
 
-  public async create(createUserDto: UserCreateDto): Promise<User> {
+  public get getModel(): UserModel {
+    return this.userModel;
+  }
+
+  public async create(createUserDto: UserCreateDto) {
     return EncryptService.hash(createUserDto.password).then(password => {
       const toSave: UserCreateDto = { ...createUserDto, password };
       return new this.userModel(toSave).save();
     });
   }
 
-  public async findOne(conditions: any): Promise<User> {
+  public async findOne(conditions: any) {
     return this.userModel.findOne(conditions);
   }
 
-  public async findAll(): Promise<User[]> {
+  public async findAll() {
     return this.userModel.find().exec();
   }
 }

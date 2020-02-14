@@ -1,10 +1,13 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 
 import { User, UserLogged } from '../../interfaces/users.model';
 import { EncryptService } from '../services/encrypt.service';
 import { UserCreateDto } from '../users/dto/user-create.dto';
 import { UsersService } from '../users/users.service';
+import { UserRequestPasswordDto } from '../users/dto/user-request-password.dto';
+import * as crypto from 'crypto';
+import { RESET_TOKEN_EXPIRATION_TIME } from '../../api.config';
 
 @Injectable()
 export class AuthService {
@@ -48,5 +51,35 @@ export class AuthService {
 
   public async register(createUserDto: UserCreateDto): Promise<User> {
     return this.usersService.create(createUserDto);
+  }
+
+  public async requestPassword(
+    userRequestPasswordDto: UserRequestPasswordDto
+  ): Promise<User> {
+    const resetToken = await this.createToken();
+    const filter = { email: userRequestPasswordDto.email };
+
+    return this.usersService.getModel.findOneAndUpdate(
+      filter,
+      {
+        resetToken: resetToken,
+        resetTokenExpiration: Date.now() + RESET_TOKEN_EXPIRATION_TIME
+      },
+      { new: true }
+    );
+  }
+
+  public async createToken(): Promise<string> {
+    return new Promise(resolve => {
+      crypto.randomBytes(32, (err, buffer) => {
+        if (err) {
+          throw new HttpException(
+            'Upps.. Somethings went wrong!',
+            HttpStatus.INTERNAL_SERVER_ERROR
+          );
+        }
+        resolve(buffer.toString('hex'));
+      });
+    });
   }
 }
