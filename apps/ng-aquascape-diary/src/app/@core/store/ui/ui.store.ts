@@ -3,7 +3,8 @@ import { Store, StoreConfig } from '@datorama/akita';
 import { NbMenuItem } from '@nebular/theme';
 
 import { MENU_ITEMS } from '../../../pages/pages-menu';
-import { deepCopy } from '../../utils/deep-copy.operator';
+import { takeUntil } from 'rxjs/operators';
+import { NbAuthService } from '@nebular/auth';
 
 export interface UiState {
   layout_showSideBar: boolean;
@@ -20,7 +21,11 @@ export function createInitialState(): UiState {
 @Injectable({ providedIn: 'root' })
 @StoreConfig({ name: 'ui' })
 export class UiStore extends Store<UiState> {
-  public constructor() {
+  public constructor(private nbAuthService: NbAuthService) {
     super(createInitialState());
+
+    this.nbAuthService
+      .onAuthenticationChange()
+      .subscribe(is => this.update({ layout_showSideBar: is }));
   }
 }

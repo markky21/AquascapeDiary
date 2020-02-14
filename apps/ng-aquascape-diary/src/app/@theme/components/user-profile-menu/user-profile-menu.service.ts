@@ -48,7 +48,7 @@ export class UserProfileMenuService {
   public onMenuItemClick(menuItem: MenuItem): void {
     switch (menuItem) {
       case MenuItem.LOGOUT:
-        this.nbAuthService.logout('email').subscribe(console.log);
+        this.router.navigate(['auth/logout']);
         break;
       case MenuItem.LOGIN:
         this.router.navigate(['auth/login']);
