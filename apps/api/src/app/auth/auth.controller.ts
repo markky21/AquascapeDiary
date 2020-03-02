@@ -5,16 +5,20 @@ import {
   HttpException,
   HttpStatus,
   Post,
+  Put,
+  Query,
   Request,
+  Res,
   Response,
   UseGuards
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import * as crypto from 'crypto';
 
 import { User } from '../../interfaces/users.model';
 import { UserCreateDto } from '../users/dto/user-create.dto';
 
+import { environment } from '../../environments/environment';
+import { UserNewPasswordDto } from '../users/dto/user-new-password.dto';
 import { UserRequestPasswordDto } from '../users/dto/user-request-password.dto';
 import { AuthService } from './auth.service';
 
@@ -62,13 +66,48 @@ export class AuthController {
 
   @Post('request-pass')
   public requestPassword(
-    @Body() userRequestPasswordDto: UserRequestPasswordDto
+    @Body() userRequestPasswordDto: UserRequestPasswordDto,
+    @Res() res
   ): Promise<User> {
-    return this.authService.requestPassword(userRequestPasswordDto);
+    this.authService.requestPassword(userRequestPasswordDto);
+    return res.send({ status: 'OK' });
   }
 
-  @Get('reset-password')
-  public resetPassword(): void {
-    return;
+  @Get('reset-pass')
+  public resetPassword(@Query('token') token: string, @Res() res): void {
+    if (!token) {
+      return;
+    }
+
+    return res.redirect(
+      new URL(
+        `${environment.urlForAngular}/auth/reset-password?reset_password_token=${token}`
+      ).toString()
+    );
+  }
+
+  @Put('reset-pass')
+  public storeNewPassword(
+    @Body() userNewPasswordDto: UserNewPasswordDto,
+    @Res() res
+  ) {
+    if (userNewPasswordDto.password !== userNewPasswordDto.confirmPassword) {
+      const response = [
+        {
+          value: userNewPasswordDto.confirmPassword,
+          property: 'confirmPassword',
+          children: [],
+          constraints: {
+            PasswordAndConfirmPasswordDontMatch:
+              'Password and confirm password do not match.'
+          }
+        }
+      ];
+      throw new HttpException(response, HttpStatus.BAD_REQUEST);
+    }
+
+    this.authService.setNewPassword(userNewPasswordDto);
+
+    return res.send({ status: 'OK' });
   }
 }

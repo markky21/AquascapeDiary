@@ -71,6 +71,7 @@
     "@nestjs/websockets": "^6.11.6",
     "@nguniversal/express-engine": "^9.0.0",
     "@nrwl/angular": "8.12.2",
+    "@sendgrid/mail": "^6.5.3",
     "@types/bcrypt": "^3.0.0",
     "bcrypt": "^3.0.8",
     "bootstrap": "4.3.1",

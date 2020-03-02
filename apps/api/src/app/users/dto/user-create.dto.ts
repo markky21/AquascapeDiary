@@ -1,5 +1,4 @@
 import {
-  Equals,
   IsEmail,
   IsNotEmpty,
   IsString,
@@ -25,7 +24,6 @@ export class UserCreateDto implements UserCreate {
   @IsNotEmpty()
   @Length(6, 20)
   public readonly confirmPassword: string;
-
 
   @IsNotEmpty()
   @IsString({ always: true })

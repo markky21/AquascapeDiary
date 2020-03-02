@@ -11,3 +11,9 @@ export const jwtModuleOptions: JwtModuleOptions = {
 };
 
 export const RESET_TOKEN_EXPIRATION_TIME = 3600000;
+
+/*********************************
+ EMAILS
+ *********************************/
+
+export const EMAIL_FROM = 'aquascape@diary.com';

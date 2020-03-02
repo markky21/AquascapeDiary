@@ -1,19 +1,22 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 
-import { User, UserLogged } from '../../interfaces/users.model';
-import { EncryptService } from '../services/encrypt.service';
-import { UserCreateDto } from '../users/dto/user-create.dto';
-import { UsersService } from '../users/users.service';
-import { UserRequestPasswordDto } from '../users/dto/user-request-password.dto';
 import * as crypto from 'crypto';
 import { RESET_TOKEN_EXPIRATION_TIME } from '../../api.config';
+import { User, UserLogged } from '../../interfaces/users.model';
+import { EncryptService } from '../services/encrypt.service';
+import { MailSenderService } from '../services/mail-sender.service';
+import { UserCreateDto } from '../users/dto/user-create.dto';
+import { UserNewPasswordDto } from '../users/dto/user-new-password.dto';
+import { UserRequestPasswordDto } from '../users/dto/user-request-password.dto';
+import { UsersService } from '../users/users.service';
 
 @Injectable()
 export class AuthService {
   public constructor(
     private readonly usersService: UsersService,
-    private jwtService: JwtService
+    private jwtService: JwtService,
+    private mailSenderService: MailSenderService
   ) {}
 
   private static async comparePassword(
@@ -50,7 +53,9 @@ export class AuthService {
   }
 
   public async register(createUserDto: UserCreateDto): Promise<User> {
-    return this.usersService.create(createUserDto);
+    return this.usersService
+      .create(createUserDto)
+      .then(user => this.mailSenderService.sendAuthRegister(user));
   }
 
   public async requestPassword(
@@ -59,14 +64,31 @@ export class AuthService {
     const resetToken = await this.createToken();
     const filter = { email: userRequestPasswordDto.email };
 
-    return this.usersService.getModel.findOneAndUpdate(
-      filter,
-      {
-        resetToken: resetToken,
-        resetTokenExpiration: Date.now() + RESET_TOKEN_EXPIRATION_TIME
-      },
-      { new: true }
-    );
+    return this.usersService.getModel
+      .findOneAndUpdate(
+        filter,
+        {
+          resetToken: resetToken,
+          resetTokenExpiration: Date.now() + RESET_TOKEN_EXPIRATION_TIME
+        },
+        { new: true }
+      )
+      .then(user => this.mailSenderService.sendAuthRequestPassword(user));
+  }
+
+  public async setNewPassword(
+    userNewPasswordDto: UserNewPasswordDto
+  ): Promise<User> {
+    return EncryptService.hash(userNewPasswordDto.password).then(password => {
+      return this.usersService.getModel.findOneAndUpdate(
+        {
+          resetToken: userNewPasswordDto.reset_password_token,
+          resetTokenExpiration: { $gt: Date.now() }
+        },
+        { password },
+        { new: true }
+      );
+    });
   }
 
   public async createToken(): Promise<string> {

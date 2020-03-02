@@ -1,8 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 
-import { User } from '../../interfaces/users.model';
-
 import { EncryptService } from '../services/encrypt.service';
 import { UserCreateDto } from './dto/user-create.dto';
 import { UserModel } from './interfaces/users.interfaces';
