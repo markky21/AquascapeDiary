@@ -5,3 +5,8 @@ export type Schema<T> = {
 };
 
 export type Doc<T> = T & Document;
+
+export interface ApiPath {
+  [key: string]: { [key2: string]: ApiPath } | string;
+  name: string;
+}

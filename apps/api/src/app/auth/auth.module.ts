@@ -19,12 +19,7 @@ import { LocalStrategyService } from './local.strategy.service';
     PassportModule.register({ defaultStrategy: 'jwt', session: true }),
     JwtModule.register(jwtModuleOptions)
   ],
-  providers: [
-    AuthService,
-    LocalStrategyService,
-    JwtStrategyService,
-    MailSenderService
-  ],
+  providers: [AuthService, LocalStrategyService, JwtStrategyService, MailSenderService],
   controllers: [AuthController]
 })
 export class AuthModule {}

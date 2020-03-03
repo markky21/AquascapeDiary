@@ -2,6 +2,12 @@ import { JWT_SECRET } from '@aquascape-diary/secrets';
 import { JwtModuleOptions } from '@nestjs/jwt/dist/interfaces/jwt-module-options.interface';
 
 /*********************************
+  GENERAL
+*********************************/
+
+export const STATUS_OK = { status: 'OK' };
+
+/*********************************
   AUTH
 *********************************/
 

@@ -2,9 +2,8 @@ import { Injectable } from '@angular/core';
 import { Store, StoreConfig } from '@datorama/akita';
 import { NbMenuItem } from '@nebular/theme';
 
-import { MENU_ITEMS } from '../../../pages/pages-menu';
-import { takeUntil } from 'rxjs/operators';
 import { NbAuthService } from '@nebular/auth';
+import { MENU_ITEMS } from '../../../pages/pages-menu';
 
 export interface UiState {
   layout_showSideBar: boolean;
