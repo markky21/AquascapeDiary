@@ -10,7 +10,5 @@ export interface SendGridModuleOptions {
 }
 
 export interface SendGridModuleOptionsFactory {
-  createSendGridModuleOptions():
-    | Promise<SendGridModuleOptions>
-    | SendGridModuleOptions;
+  createSendGridModuleOptions(): Promise<SendGridModuleOptions> | SendGridModuleOptions;
 }

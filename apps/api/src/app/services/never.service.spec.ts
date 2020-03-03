@@ -6,7 +6,7 @@ describe('NeverService', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [NeverService],
+      providers: [NeverService]
     }).compile();
 
     service = module.get<NeverService>(NeverService);

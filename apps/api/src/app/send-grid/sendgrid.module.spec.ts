@@ -1,9 +1,6 @@
 import { Test } from '@nestjs/testing';
 import { SendGridConstants } from './sendgrid.constants';
-import {
-  SendGridModuleOptions,
-  SendGridModuleOptionsFactory
-} from './sendgrid.interfaces';
+import { SendGridModuleOptions, SendGridModuleOptionsFactory } from './sendgrid.interfaces';
 import { SendGridModule } from './sendgrid.module';
 
 describe('SendGridModule', () => {
@@ -44,11 +41,7 @@ describe('SendGridModule', () => {
 
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       // tslint:disable-next-line:no-non-null-assertion
-      expect(Object.keys(dynamicModule.providers![0])).toStrictEqual([
-        'provide',
-        'useFactory',
-        'inject'
-      ]);
+      expect(Object.keys(dynamicModule.providers![0])).toStrictEqual(['provide', 'useFactory', 'inject']);
 
       expect(dynamicModule).toMatchObject({
         imports: [],

@@ -1,10 +1,4 @@
-import { OAUTH2_SECRET } from '@aquascape-diary/secrets';
-import {
-  NbAuthJWTToken,
-  NbOAuth2AuthStrategy,
-  NbOAuth2ResponseType,
-  NbPasswordAuthStrategy
-} from '@nebular/auth';
+import { NbAuthJWTToken, NbPasswordAuthStrategy } from '@nebular/auth';
 import { NbAuthOptions } from '@nebular/auth/auth.options';
 
 const SOCIAL_LINKS = [
@@ -46,19 +40,19 @@ export const NB_AUTH_OPTIONS: NbAuthOptions = {
         class: NbAuthJWTToken,
         key: 'access_token'
       }
-    }),
-    NbOAuth2AuthStrategy.setup({
-      name: 'google',
-      clientId:
-        '945901052792-g8qrq7qdeeusfticlf3uk0r62uulqdv5.apps.googleusercontent.com',
-      clientSecret: OAUTH2_SECRET.clientSecret,
-      authorize: {
-        endpoint: 'https://accounts.google.com/o/oauth2/v2/auth',
-        responseType: NbOAuth2ResponseType.TOKEN,
-        scope: 'https://www.googleapis.com/auth/userinfo.profile',
-        redirectUri: 'http://localhost:4200/auth/oauth2/callback'
-      }
     })
+    // NbOAuth2AuthStrategy.setup({
+    //   name: 'google',
+    //   clientId:
+    //     '945901052792-g8qrq7qdeeusfticlf3uk0r62uulqdv5.apps.googleusercontent.com',
+    //   clientSecret: OAUTH2_SECRET.clientSecret,
+    //   authorize: {
+    //     endpoint: 'https://accounts.google.com/o/oauth2/v2/auth',
+    //     responseType: NbOAuth2ResponseType.TOKEN,
+    //     scope: 'https://www.googleapis.com/auth/userinfo.profile',
+    //     redirectUri: 'http://localhost:4200/auth/oauth2/callback'
+    //   }
+    // })
   ],
   forms: {
     login: {
@@ -66,7 +60,17 @@ export const NB_AUTH_OPTIONS: NbAuthOptions = {
       redirectDelay: 3000
     },
     register: {
-      socialLinks: SOCIAL_LINKS
+      socialLinks: SOCIAL_LINKS,
+      redirectDelay: 3000
+    },
+    requestPassword: {
+      redirectDelay: 3000
+    },
+    resetPassword: {
+      redirectDelay: 3000
+    },
+    logout: {
+      redirectDelay: 3000
     }
   }
 };

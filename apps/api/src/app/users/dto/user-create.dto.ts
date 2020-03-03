@@ -1,10 +1,4 @@
-import {
-  IsEmail,
-  IsNotEmpty,
-  IsString,
-  Length,
-  Validate
-} from 'class-validator';
+import { IsEmail, IsNotEmpty, IsString, Length, Validate } from 'class-validator';
 
 import { UserCreate } from '../../../interfaces/users.model';
 import { IsUserAlreadyExist } from '../validators/is-user-already-exist.validator';

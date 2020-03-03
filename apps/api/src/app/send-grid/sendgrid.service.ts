@@ -25,15 +25,8 @@ export class SendGridService {
     console.log('options.apikey: ', options.apikey);
     logger.log('Set API Key');
 
-    if (
-      options.substitutionWrappers &&
-      options.substitutionWrappers.left &&
-      options.substitutionWrappers.right
-    ) {
-      SendGrid.setSubstitutionWrappers(
-        options.substitutionWrappers.left,
-        options.substitutionWrappers.right
-      );
+    if (options.substitutionWrappers && options.substitutionWrappers.left && options.substitutionWrappers.right) {
+      SendGrid.setSubstitutionWrappers(options.substitutionWrappers.left, options.substitutionWrappers.right);
       logger.log('Set Substitution Wrappers');
     }
   }
@@ -44,11 +37,7 @@ export class SendGridService {
     cb?: (err: Error | ResponseError, result: [ClientResponse, {}]) => void
   ): Promise<[ClientResponse, {}]> {
     if (Array.isArray(data)) {
-      return SendGrid.send(
-        data.map(d => this.mergeWithDefaultMailData(d)) as MailData[],
-        isMultiple,
-        cb
-      );
+      return SendGrid.send(data.map(d => this.mergeWithDefaultMailData(d)) as MailData[], isMultiple, cb);
     } else {
       return SendGrid.send(this.mergeWithDefaultMailData(data), isMultiple, cb);
     }
@@ -58,10 +47,7 @@ export class SendGridService {
     data: Partial<MailData>,
     cb?: (error: Error | ResponseError, result: [ClientResponse, {}]) => void
   ): Promise<[ClientResponse, {}]> {
-    return SendGrid.sendMultiple(
-      this.mergeWithDefaultMailData(data) as MailData,
-      cb
-    );
+    return SendGrid.sendMultiple(this.mergeWithDefaultMailData(data) as MailData, cb);
   }
 
   private mergeWithDefaultMailData(data: Partial<MailData>): MailData {

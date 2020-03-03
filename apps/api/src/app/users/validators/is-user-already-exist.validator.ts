@@ -1,11 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import {
-  registerDecorator,
-  ValidationArguments,
-  ValidationOptions,
-  ValidatorConstraint,
-  ValidatorConstraintInterface
-} from 'class-validator';
+import { ValidationArguments, ValidatorConstraint, ValidatorConstraintInterface } from 'class-validator';
 
 import { UsersService } from '../users.service';
 
@@ -14,12 +8,7 @@ import { UsersService } from '../users.service';
 export class IsUserAlreadyExist implements ValidatorConstraintInterface {
   public constructor(private usersService: UsersService) {}
 
-  public async validate(
-    value: string,
-    args: ValidationArguments
-  ): Promise<boolean> {
-    return this.usersService
-      .findOne({ [args.constraints[0]]: value })
-      .then(user => !user);
+  public async validate(value: string, args: ValidationArguments): Promise<boolean> {
+    return this.usersService.findOne({ [args.constraints[0]]: value }).then(user => !user);
   }
 }

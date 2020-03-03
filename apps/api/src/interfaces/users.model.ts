@@ -7,8 +7,7 @@ export interface User {
   resetTokenExpiration: Number;
 }
 
-export interface UserCreate
-  extends Pick<User, 'email' | 'password' | 'fullName'> {
+export interface UserCreate extends Pick<User, 'email' | 'password' | 'fullName'> {
   confirmPassword: String;
 }
 export interface UserNewPassword extends Pick<User, 'password'> {

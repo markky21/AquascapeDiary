@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 
 import * as crypto from 'crypto';
-import {  RESET_TOKEN_EXPIRATION_TIME } from '../../api.config';
+import { RESET_TOKEN_EXPIRATION_TIME } from '../../api.config';
 import { User, UserLogged } from '../../interfaces/users.model';
 import { EncryptService } from '../services/encrypt.service';
 import { MailSenderService } from '../services/mail-sender.service';

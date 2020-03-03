@@ -66,11 +66,9 @@ describe('SendGridService', () => {
       ]
     }).compile();
     const service = app.get<SendGridService>(SendGridService);
-    const mock = jest
-      .spyOn(sendgrid, 'send')
-      .mockImplementationOnce(async () => {
-        return [{} as any, {}];
-      });
+    const mock = jest.spyOn(sendgrid, 'send').mockImplementationOnce(async () => {
+      return [{} as any, {}];
+    });
     await service.send({
       to: 'test@example.com',
       from: 'test@example.com',
@@ -97,18 +95,16 @@ describe('SendGridService', () => {
       ]
     }).compile();
     const service = app.get<SendGridService>(SendGridService);
-    let mock = jest
-      .spyOn(sendgrid, 'send')
-      .mockImplementationOnce(async data => {
-        expect(data).toStrictEqual({
-          to: 'test@example.com',
-          from: 'test@example.com',
-          subject: 'Sending with SendGrid is Fun',
-          text: 'and easy to do anywhere, even with Node.js',
-          html: '<strong>and easy to do anywhere, even with Node.js</strong>'
-        });
-        return [{} as any, {}];
+    let mock = jest.spyOn(sendgrid, 'send').mockImplementationOnce(async data => {
+      expect(data).toStrictEqual({
+        to: 'test@example.com',
+        from: 'test@example.com',
+        subject: 'Sending with SendGrid is Fun',
+        text: 'and easy to do anywhere, even with Node.js',
+        html: '<strong>and easy to do anywhere, even with Node.js</strong>'
       });
+      return [{} as any, {}];
+    });
     await service.send({
       to: 'test@example.com',
       subject: 'Sending with SendGrid is Fun',
@@ -166,11 +162,9 @@ describe('SendGridService', () => {
       ]
     }).compile();
     const service = app.get<SendGridService>(SendGridService);
-    const mock = jest
-      .spyOn(sendgrid, 'sendMultiple')
-      .mockImplementationOnce(async () => {
-        return [{} as any, {}];
-      });
+    const mock = jest.spyOn(sendgrid, 'sendMultiple').mockImplementationOnce(async () => {
+      return [{} as any, {}];
+    });
     await service.sendMultiple({
       to: 'test@example.com',
       from: 'test@example.com',
