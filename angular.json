@@ -85,7 +85,8 @@
           "options": {
             "jestConfig": "apps/ng-aquascape-diary/jest.config.js",
             "tsConfig": "apps/ng-aquascape-diary/tsconfig.spec.json",
-            "setupFile": "apps/ng-aquascape-diary/src/test-setup.ts"
+            "setupFile": "apps/ng-aquascape-diary/src/test-setup.ts",
+            "passWithNoTests": true
           }
         },
         "server": {
@@ -207,7 +208,8 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/api/jest.config.js",
-            "tsConfig": "apps/api/tsconfig.spec.json"
+            "tsConfig": "apps/api/tsconfig.spec.json",
+            "passWithNoTests": true
           }
         }
       }
@@ -230,7 +232,8 @@
           "options": {
             "jestConfig": "libs/ui/jest.config.js",
             "tsConfig": "libs/ui/tsconfig.spec.json",
-            "setupFile": "libs/ui/src/test-setup.ts"
+            "setupFile": "libs/ui/src/test-setup.ts",
+            "passWithNoTests": true
           }
         },
         "storybook": {
@@ -315,7 +318,8 @@
           "options": {
             "jestConfig": "libs/secrets/jest.config.js",
             "tsConfig": "libs/secrets/tsconfig.spec.json",
-            "setupFile": "libs/secrets/src/test-setup.ts"
+            "setupFile": "libs/secrets/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       },
