@@ -9,28 +9,15 @@ import { MenuItem } from './user-profile-menu.model';
 
 @Injectable({ providedIn: 'root' })
 export class UserProfileMenuService {
-  private menuItemsWhenAuth: NbMenuItem[] = [
-    { title: MenuItem.PROFILE },
-    { title: MenuItem.LOGOUT }
-  ];
-  private menuItemsWhenNotAuth: NbMenuItem[] = [
-    { title: MenuItem.LOGIN },
-    { title: MenuItem.REGISTER }
-  ];
+  private menuItemsWhenAuth: NbMenuItem[] = [{ title: MenuItem.PROFILE }, { title: MenuItem.LOGOUT }];
+  private menuItemsWhenNotAuth: NbMenuItem[] = [{ title: MenuItem.LOGIN }, { title: MenuItem.REGISTER }];
 
-  public constructor(
-    private nbAuthService: NbAuthService,
-    private router: Router
-  ) {}
+  public constructor(private nbAuthService: NbAuthService, private router: Router) {}
 
   public getMenuItems$(): Observable<NbMenuItem[]> {
     return this.nbAuthService
       .onAuthenticationChange()
-      .pipe(
-        map(isAuth =>
-          isAuth ? this.menuItemsWhenAuth : this.menuItemsWhenNotAuth
-        )
-      );
+      .pipe(map(isAuth => (isAuth ? this.menuItemsWhenAuth : this.menuItemsWhenNotAuth)));
   }
   public getName$(): Observable<string> {
     return of(null);

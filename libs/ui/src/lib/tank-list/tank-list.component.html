@@ -1,0 +1,32 @@
+<nb-list class="TankList" nbInfiniteList [threshold]="500" (bottomThreshold)="loadNextTanks()">
+  <nb-list-item class="TankList-item" (mouseover)="setFlipCardNewTank(true)" (mouseout)="setFlipCardNewTank(false)">
+    <nb-flip-card class="TankCard-flipCard" [flipped]="isFlippedCardNewTank" [showToggleButton]="false">
+      <nb-card-front>
+        <nb-card class="TankCard">
+          <nb-card-header class="TankCard-body TankCard-body--new">
+            <nb-icon class="TankCard-addNewIcon" icon="plus-outline"></nb-icon>
+          </nb-card-header>
+        </nb-card>
+      </nb-card-front>
+      <nb-card-back>
+        <nb-card class="TankCard">
+          <nb-card-header class="TankCard-body TankCard-body--new">
+            <h6>Have you started new Aquascape tank?</h6>
+            <h6>If yes, then go ahead and..</h6>
+            <hr />
+            <button [routerLink]="'pages/add-new-tank'" nbButton ghost><h4>Add new Tank!</h4></button>
+          </nb-card-header>
+        </nb-card>
+      </nb-card-back>
+    </nb-flip-card>
+  </nb-list-item>
+
+  <nb-list-item class="TankList-item" *ngFor="let tank of tanks"
+    ><nb-card class="TankCard">
+      <nb-card-body class="TankCard-body">
+        <nb-icon class="TankCard-addNewIcon" icon="plus-outline"></nb-icon>
+        Some tanks here
+      </nb-card-body>
+    </nb-card></nb-list-item
+  >
+</nb-list>

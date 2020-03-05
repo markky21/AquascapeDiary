@@ -19,7 +19,8 @@
       "@aquascape-diary/ui": ["libs/ui/src/index.ts"],
       "@ng-aquascape-diary": ["apps/ng-aquascape-diary"],
       "@api": ["apps/api"],
-      "@aquascape-diary/secrets": ["libs/secrets/src/index.ts"]
+      "@aquascape-diary/secrets": ["libs/secrets/src/index.ts"],
+      "@aquascape-diary/tank-list": ["libs/tank-list/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

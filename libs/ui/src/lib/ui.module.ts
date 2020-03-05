@@ -1,10 +1,5 @@
 import { CommonModule } from '@angular/common';
-import {
-  ModuleWithProviders,
-  NgModule,
-  Optional,
-  SkipSelf
-} from '@angular/core';
+import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import {

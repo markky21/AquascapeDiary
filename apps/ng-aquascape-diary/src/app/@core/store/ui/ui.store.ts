@@ -23,8 +23,6 @@ export class UiStore extends Store<UiState> {
   public constructor(private nbAuthService: NbAuthService) {
     super(createInitialState());
 
-    this.nbAuthService
-      .onAuthenticationChange()
-      .subscribe(is => this.update({ layout_showSideBar: is }));
+    this.nbAuthService.onAuthenticationChange().subscribe(is => this.update({ layout_showSideBar: is }));
   }
 }

@@ -12,11 +12,7 @@ export class SeoService implements OnDestroy {
   private readonly isBrowser: boolean;
   private linkCanonical: HTMLLinkElement;
 
-  public constructor(
-    private router: Router,
-    @Inject(NB_DOCUMENT) document,
-    @Inject(PLATFORM_ID) platformId
-  ) {
+  public constructor(private router: Router, @Inject(NB_DOCUMENT) document, @Inject(PLATFORM_ID) platformId) {
     this.isBrowser = isPlatformBrowser(platformId);
     this.dom = document;
 

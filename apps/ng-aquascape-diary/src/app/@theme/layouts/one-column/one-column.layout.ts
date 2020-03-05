@@ -9,12 +9,7 @@ import { Component, Input } from '@angular/core';
         <ngx-header></ngx-header>
       </nb-layout-header>
 
-      <nb-sidebar
-        *ngIf="showSideBar"
-        class="menu-sidebar"
-        tag="menu-sidebar"
-        responsive
-      >
+      <nb-sidebar *ngIf="showSideBar" class="menu-sidebar" tag="menu-sidebar" responsive>
         <ng-content select="nb-menu"></ng-content>
       </nb-sidebar>
 

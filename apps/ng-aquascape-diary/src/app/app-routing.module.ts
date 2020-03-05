@@ -8,6 +8,7 @@ import {
   NbRequestPasswordComponent,
   NbResetPasswordComponent
 } from '@nebular/auth';
+import { TankListWrapperModule } from './pages/tank-list/tank-list.module';
 
 const routes: Routes = [
   {
@@ -53,7 +54,7 @@ const config: ExtraOptions = {
 };
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, config)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes, config), TankListWrapperModule],
+  exports: [RouterModule, TankListWrapperModule]
 })
 export class AppRoutingModule {}

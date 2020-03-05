@@ -25,7 +25,7 @@ export const NB_AUTH_OPTIONS: NbAuthOptions = {
       name: 'email',
       login: {
         redirect: {
-          success: '/pages/diary',
+          success: '/pages/tank-list',
           failure: null
         }
       },

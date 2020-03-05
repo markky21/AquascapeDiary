@@ -50,10 +50,7 @@ export const NB_CORE_PROVIDERS = [
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    environment.production ? [] : AkitaNgDevtools.forRoot()
-  ],
+  imports: [CommonModule, environment.production ? [] : AkitaNgDevtools.forRoot()],
   exports: [NbAuthModule],
   providers: [LayoutService, ...NB_CORE_PROVIDERS]
 })

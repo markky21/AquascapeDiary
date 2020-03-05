@@ -2,13 +2,7 @@ import { Location } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import {
-  distinctUntilChanged,
-  map,
-  shareReplay,
-  startWith,
-  tap
-} from 'rxjs/operators';
+import { distinctUntilChanged, map, shareReplay, startWith, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'

@@ -9,6 +9,13 @@ export let MENU_ITEMS: NbMenuItem[] = [
     selected: false
   },
   {
+    title: 'Tank List',
+    icon: 'grid-outline',
+    link: '/pages/tank-list',
+    home: false,
+    selected: false
+  },
+  {
     title: 'Diary',
     icon: 'edit-2-outline',
     link: '/pages/diary',

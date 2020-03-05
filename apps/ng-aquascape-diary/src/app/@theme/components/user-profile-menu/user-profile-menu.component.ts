@@ -1,12 +1,6 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { NbAuthService } from '@nebular/auth';
-import {
-  NB_WINDOW,
-  NbBadgePosition,
-  NbComponentSize,
-  NbComponentStatus,
-  NbMenuService
-} from '@nebular/theme';
+import { NB_WINDOW, NbBadgePosition, NbComponentSize, NbComponentStatus, NbMenuService } from '@nebular/theme';
 import { NbMenuItem } from '@nebular/theme/components/menu/menu.service';
 import { Observable } from 'rxjs';
 import { filter, map, tap } from 'rxjs/operators';
@@ -52,9 +46,7 @@ export class UserProfileMenuComponent implements OnInit {
       .pipe(
         filter(({ tag }) => tag === 'my-context-menu'),
         map(({ item: { title } }) => title),
-        tap(title =>
-          this.userProfileMenuService.onMenuItemClick(title as MenuItem)
-        )
+        tap(title => this.userProfileMenuService.onMenuItemClick(title as MenuItem))
       )
       .subscribe();
   }

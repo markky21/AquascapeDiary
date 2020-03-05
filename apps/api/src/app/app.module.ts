@@ -1,8 +1,6 @@
-import { MONGO_DB_URL } from '@aquascape-diary/secrets';
+import { MONGO_DB_URL, SEND_GRID_API_SECRET } from '@aquascape-diary/secrets';
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-
-import { SEND_GRID_API_SECRET } from '@aquascape-diary/secrets';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';

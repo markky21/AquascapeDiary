@@ -21,10 +21,7 @@
             "polyfills": "apps/ng-aquascape-diary/src/polyfills.ts",
             "tsConfig": "apps/ng-aquascape-diary/tsconfig.app.json",
             "aot": true,
-            "assets": [
-              "apps/ng-aquascape-diary/src/favicon.ico",
-              "apps/ng-aquascape-diary/src/assets"
-            ],
+            "assets": ["apps/ng-aquascape-diary/src/favicon.ico", "apps/ng-aquascape-diary/src/assets"],
             "styles": ["apps/ng-aquascape-diary/src/styles.scss"],
             "scripts": []
           },
@@ -79,10 +76,7 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/ng-aquascape-diary/tsconfig.app.json",
-              "apps/ng-aquascape-diary/tsconfig.spec.json"
-            ],
+            "tsConfig": ["apps/ng-aquascape-diary/tsconfig.app.json", "apps/ng-aquascape-diary/tsconfig.spec.json"],
             "exclude": ["**/node_modules/**", "!apps/ng-aquascape-diary/**"]
           }
         },
@@ -205,10 +199,7 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/api/tsconfig.app.json",
-              "apps/api/tsconfig.spec.json"
-            ],
+            "tsConfig": ["apps/api/tsconfig.app.json", "apps/api/tsconfig.spec.json"],
             "exclude": ["**/node_modules/**", "!apps/api/**"]
           }
         },
@@ -230,10 +221,7 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "libs/ui/tsconfig.lib.json",
-              "libs/ui/tsconfig.spec.json"
-            ],
+            "tsConfig": ["libs/ui/tsconfig.lib.json", "libs/ui/tsconfig.spec.json"],
             "exclude": ["**/node_modules/**", "!libs/ui/**"]
           }
         },
@@ -318,10 +306,7 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "libs/secrets/tsconfig.lib.json",
-              "libs/secrets/tsconfig.spec.json"
-            ],
+            "tsConfig": ["libs/secrets/tsconfig.lib.json", "libs/secrets/tsconfig.spec.json"],
             "exclude": ["**/node_modules/**", "!libs/secrets/**"]
           }
         },

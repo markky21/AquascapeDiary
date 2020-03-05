@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbSecurityModule } from '@nebular/security';
 import {
@@ -16,24 +16,9 @@ import {
   NbUserModule
 } from '@nebular/theme';
 
-import {
-  FooterComponent,
-  HeaderComponent,
-  SearchInputComponent,
-  UserProfileMenuComponent
-} from './components';
-import {
-  OneColumnLayoutComponent,
-  ThreeColumnsLayoutComponent,
-  TwoColumnsLayoutComponent
-} from './layouts';
-import {
-  CapitalizePipe,
-  NumberWithCommasPipe,
-  PluralPipe,
-  RoundPipe,
-  TimingPipe
-} from './pipes';
+import { FooterComponent, HeaderComponent, SearchInputComponent, UserProfileMenuComponent } from './components';
+import { OneColumnLayoutComponent, ThreeColumnsLayoutComponent, TwoColumnsLayoutComponent } from './layouts';
+import { CapitalizePipe, NumberWithCommasPipe, PluralPipe, RoundPipe, TimingPipe } from './pipes';
 import { CORPORATE_THEME } from './styles/theme.corporate';
 import { COSMIC_THEME } from './styles/theme.cosmic';
 import { DARK_THEME } from './styles/theme.dark';
@@ -62,13 +47,7 @@ const COMPONENTS = [
   TwoColumnsLayoutComponent,
   UserProfileMenuComponent
 ];
-const PIPES = [
-  CapitalizePipe,
-  PluralPipe,
-  RoundPipe,
-  TimingPipe,
-  NumberWithCommasPipe
-];
+const PIPES = [CapitalizePipe, PluralPipe, RoundPipe, TimingPipe, NumberWithCommasPipe];
 
 @NgModule({
   imports: [CommonModule, ...NB_MODULES],

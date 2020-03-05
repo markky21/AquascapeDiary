@@ -1,7 +1,6 @@
-import { IsEmail, IsNotEmpty, Length, Validate } from 'class-validator';
+import { IsNotEmpty } from 'class-validator';
 
 import { UserLogin } from '../../../interfaces/users.model';
-import { IsUserValueExist } from '../validators/is-user-value-exist.validator';
 
 export class UserLoginDto implements UserLogin {
   @IsNotEmpty()

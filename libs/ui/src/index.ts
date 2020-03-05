@@ -2,6 +2,7 @@
 Modules
  */
 export * from './lib/ui.module';
+export * from './lib/tank-list';
 /*
 Services
  */

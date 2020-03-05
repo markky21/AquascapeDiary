@@ -1,14 +1,5 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  OnDestroy,
-  OnInit
-} from '@angular/core';
-import {
-  NbMenuService,
-  NbSidebarService,
-  NbThemeService
-} from '@nebular/theme';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
+import { NbMenuService, NbSidebarService, NbThemeService } from '@nebular/theme';
 import { Observable, Subject } from 'rxjs';
 
 import { Theme } from '../../../@core/models/core.model';
@@ -40,9 +31,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   public toggleThemeClick(): void {
-    this.themeService.changeTheme(
-      this.themeService.currentTheme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT
-    );
+    this.themeService.changeTheme(this.themeService.currentTheme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT);
   }
 
   public toggleSidebar(): false {

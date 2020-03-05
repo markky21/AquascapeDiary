@@ -1,0 +1,52 @@
+.TankList {
+  display: flex;
+  flex: 1 1 auto;
+  overflow: auto;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+.TankList-item {
+  max-width: 400px;
+  min-width: 300px;
+  width: 100%;
+}
+
+.TankCard-flipCard {
+  width: 100%;
+}
+.TankCard {
+  width: 100%;
+  padding-bottom: 61.8%;
+  position: relative;
+}
+
+.TankCard-body {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  &--new {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      text-transform: inherit;
+    }
+  }
+}
+
+.TankCard-addNewIcon {
+  font-size: 5em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.6;
+}

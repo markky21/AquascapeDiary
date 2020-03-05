@@ -7,6 +7,7 @@ import { DiaryComponent } from './diary/diary.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 import { PagesComponent } from './pages.component';
+import { TankListWrapperComponent } from './tank-list/tank-list-wrapper.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,11 @@ const routes: Routes = [
       {
         path: 'home',
         component: HomePageComponent
+      },
+      {
+        path: 'tank-list',
+        component: TankListWrapperComponent,
+        canActivate: [AuthGuardService]
       },
       {
         path: 'diary',

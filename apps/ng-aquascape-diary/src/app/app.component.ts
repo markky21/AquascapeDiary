@@ -8,10 +8,7 @@ import { SeoService } from './@core/services/seo.service';
   template: '<router-outlet></router-outlet>'
 })
 export class AppComponent implements OnInit {
-  public constructor(
-    private analytics: AnalyticsService,
-    private seoService: SeoService
-  ) {}
+  public constructor(private analytics: AnalyticsService, private seoService: SeoService) {}
 
   public ngOnInit(): void {
     this.analytics.trackPageViews();
