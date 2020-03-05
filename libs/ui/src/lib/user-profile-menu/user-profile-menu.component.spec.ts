@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { UiModule } from '@aquascape-diary/ui';
 import { UserProfileMenuComponent } from './user-profile-menu.component';
 
 describe('UserProfileMenuComponent', () => {
@@ -8,7 +9,7 @@ describe('UserProfileMenuComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [UserProfileMenuComponent]
+      imports: [UiModule]
     }).compileComponents();
   }));
 

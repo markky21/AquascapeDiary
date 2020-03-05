@@ -16,6 +16,7 @@ import {
   NbUserModule
 } from '@nebular/theme';
 
+import { MiscellaneousModule } from '../pages/miscellaneous/miscellaneous.module';
 import { FooterComponent, HeaderComponent, SearchInputComponent, UserProfileMenuComponent } from './components';
 import { OneColumnLayoutComponent, ThreeColumnsLayoutComponent, TwoColumnsLayoutComponent } from './layouts';
 import { CapitalizePipe, NumberWithCommasPipe, PluralPipe, RoundPipe, TimingPipe } from './pipes';
@@ -36,7 +37,8 @@ const NB_MODULES = [
   NbButtonModule,
   NbSelectModule,
   NbIconModule,
-  NbEvaIconsModule
+  NbEvaIconsModule,
+  NbMenuModule
 ];
 const COMPONENTS = [
   HeaderComponent,
@@ -51,7 +53,7 @@ const PIPES = [CapitalizePipe, PluralPipe, RoundPipe, TimingPipe, NumberWithComm
 
 @NgModule({
   imports: [CommonModule, ...NB_MODULES],
-  exports: [CommonModule, ...PIPES, ...COMPONENTS],
+  exports: [CommonModule, ...PIPES, ...COMPONENTS, ...NB_MODULES],
   declarations: [...COMPONENTS, ...PIPES],
   providers: [
     ...NbThemeModule.forRoot(
