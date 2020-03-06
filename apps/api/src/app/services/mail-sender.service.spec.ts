@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { SendGridModule } from '../send-grid/sendgrid.module';
+import { ServicesMocksArray } from '../../mocks/services.mocks';
 import { MailSenderService } from './mail-sender.service';
 
 describe('MailSenderService', () => {
@@ -7,7 +7,7 @@ describe('MailSenderService', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [MailSenderService], imports: [SendGridModule]
+      providers: [...ServicesMocksArray, MailSenderService]
     }).compile();
 
     service = module.get<MailSenderService>(MailSenderService);

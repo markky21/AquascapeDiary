@@ -8,6 +8,7 @@
     "api:build": "ng build api",
     "api:start": "ng serve api",
     "api:test": "ng test api",
+    "api:test:jest": "jest --config apps/api/jest.config.js",
     "ng-aquascape-diary:build": "ng build",
     "ng-aquascape-diary:e2e": "ng e2e",
     "ng-aquascape-diary:lint": "nx workspace-lint && ng lint",

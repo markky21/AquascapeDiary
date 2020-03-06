@@ -1,5 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
+import { ServicesMocksArray } from '../../mocks/services.mocks';
 import { UsersController } from './users.controller';
 
 describe('Users Controller', () => {
@@ -7,6 +8,7 @@ describe('Users Controller', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
+      providers: [...ServicesMocksArray],
       controllers: [UsersController]
     }).compile();
 

@@ -12,8 +12,17 @@ import { UserNewPasswordDto } from '../users/dto/user-new-password.dto';
 import { UserRequestPasswordDto } from '../users/dto/user-request-password.dto';
 import { UsersService } from '../users/users.service';
 
+export interface AuthServiceInterface {
+  createToken(): Promise<string>;
+  login(user: UserLogged): Promise<UserLogged>;
+  register(createUserDto: UserCreateDto): Promise<User>;
+  requestPassword(userRequestPasswordDto: UserRequestPasswordDto): Promise<User>;
+  setNewPassword(userNewPasswordDto: UserNewPasswordDto): Promise<User>;
+  validateUser(email: string, reqPassword: string): Promise<UserLogged>;
+}
+
 @Injectable()
-export class AuthService {
+export class AuthService implements AuthServiceInterface {
   public constructor(
     private readonly usersService: UsersService,
     private jwtService: JwtService,
@@ -39,7 +48,7 @@ export class AuthService {
     });
   }
 
-  public async login(user: UserLogged) {
+  public async login(user: UserLogged): Promise<UserLogged> {
     const payload = { username: user.email, sub: user._id };
     return {
       access_token: this.jwtService.sign(payload),
