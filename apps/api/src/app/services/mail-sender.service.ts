@@ -4,8 +4,13 @@ import { environment } from '../../environments/environment';
 import { User } from '../../interfaces/users.model';
 import { SendGridService } from '../send-grid/sendgrid.service';
 
+export interface MailSenderServiceInterface {
+  sendAuthRegister(user: User): Promise<User>;
+  sendAuthRequestPassword(user: User): Promise<User>;
+}
+
 @Injectable()
-export class MailSenderService {
+export class MailSenderService implements MailSenderServiceInterface {
   public constructor(private sendGridService: SendGridService) {}
 
   public async sendAuthRegister(user: User): Promise<User> {

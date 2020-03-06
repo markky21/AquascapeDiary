@@ -8,8 +8,20 @@ import { SendGridConstants } from './sendgrid.constants';
 import { SendGridModuleOptions } from './sendgrid.interfaces';
 import { logger } from './sendgrid.logger';
 
+export interface SendGridServiceInterface {
+  send(
+    data: Partial<MailData> | Partial<MailData>[],
+    isMultiple?: boolean,
+    cb?: (err: Error | ResponseError, result: [ClientResponse, {}]) => void
+  ): Promise<[ClientResponse, {}]>;
+  sendMultiple(
+    data: Partial<MailData>,
+    cb?: (error: Error | ResponseError, result: [ClientResponse, {}]) => void
+  ): Promise<[ClientResponse, {}]>;
+}
+
 @Injectable()
-export class SendGridService {
+export class SendGridService implements SendGridServiceInterface {
   public constructor(
     @Inject(SendGridConstants.SENDGRID_MODULE_OPTIONS)
     private readonly options: SendGridModuleOptions
