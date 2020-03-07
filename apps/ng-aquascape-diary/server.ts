@@ -2,6 +2,7 @@ import { APP_BASE_HREF } from '@angular/common';
 import { ngExpressEngine } from '@nguniversal/express-engine';
 import * as express from 'express';
 import { existsSync } from 'fs';
+import { createProxyMiddleware } from 'http-proxy-middleware';
 import { join } from 'path';
 import 'zone.js/dist/zone-node';
 
@@ -25,7 +26,7 @@ export function app() {
   server.set('views', distFolder);
 
   // Example Express Rest API endpoints
-  // app.get('/api/**', (req, res) => { });
+  server.use('/api', createProxyMiddleware('/api', { target: 'http://localhost:3333', ws: true }));
   // Serve static files from /browser
   server.get(
     '*.*',

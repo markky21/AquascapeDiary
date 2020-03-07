@@ -20,8 +20,8 @@ import { AppComponent } from './app.component';
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    BrowserModule,
     BrowserAnimationsModule,
+    BrowserModule.withServerTransition({appId: 'ng-aquascape-diary'}),
     HttpClientModule,
     AppRoutingModule,
 

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { AnalyticsService } from './@core/services/analytics.service';
 import { SeoService } from './@core/services/seo.service';
 
