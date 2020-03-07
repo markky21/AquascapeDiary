@@ -10,7 +10,6 @@ export class HomePageComponent implements OnInit {
 
 
 
-
   }
 
   public ngOnInit() {}
