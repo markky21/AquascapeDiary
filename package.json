@@ -40,7 +40,8 @@
     "dep-graph": "nx dep-graph",
     "help": "nx help",
     "compile:server_bak": "webpack --config apps/ng-aquascape-diary/webpack.server.config.js --progress --colors",
-    "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points"
+    "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
+    "tslint-check": "tslint-config-prettier-check ./tslint.json"
   },
   "private": true,
   "dependencies": {
@@ -138,6 +139,7 @@
     "ts-loader": "^6.2.1",
     "ts-node": "~8.6.2",
     "tslint": "~5.5.0",
+    "tslint-config-prettier": "^1.18.0",
     "typescript": "3.7.5",
     "webpack-cli": "^3.1.0"
   },
