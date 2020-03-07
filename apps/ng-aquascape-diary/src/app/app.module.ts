@@ -21,7 +21,7 @@ import { AppComponent } from './app.component';
   declarations: [AppComponent],
   imports: [
     BrowserAnimationsModule,
-    BrowserModule.withServerTransition({appId: 'ng-aquascape-diary'}),
+    BrowserModule.withServerTransition({ appId: 'ng-aquascape-diary' }),
     HttpClientModule,
     AppRoutingModule,
 
