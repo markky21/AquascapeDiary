@@ -29,7 +29,7 @@
     "affected:build": "nx affected:build --base=master --head=HEAD",
     "affected:e2e": "nx affected:e2e --base=master --head=HEAD",
     "affected:test": "nx affected:test --base=master --head=HEAD",
-    "affected:lint": "nx affected:lint --base=master --head=HEAD",
+    "affected:lint": "nx affected:lint --silent=true --base=master --head=HEAD",
     "affected:dep-graph": "nx affected:dep-graph --base=master --head=HEAD",
     "affected": "nx affected",
     "format": "nx format:write",
