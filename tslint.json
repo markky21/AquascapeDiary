@@ -84,8 +84,7 @@
         "named-imports-order": "case-insensitive",
         "grouped-imports": true
       }
-    ],
-    "no-duplicate-imports": true
+    ]
   },
   "extends": ["tslint:latest", "tslint-config-prettier"]
 }
