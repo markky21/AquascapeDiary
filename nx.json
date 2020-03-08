@@ -27,9 +27,6 @@
     "ui-e2e": {
       "tags": [],
       "implicitDependencies": ["ui", "ui"]
-    },
-    "secrets": {
-      "tags": []
     }
   }
 }

@@ -18,6 +18,7 @@
     "ng-aquascape-diary:build:ssr": "ng build --prod && ng run ng-aquascape-diary:server:production",
     "ng-aquascape-diary:prerender": "ng run ng-aquascape-diary:prerender",
     "ng-aquascape-diary:test": "ng test ng-aquascape-diary",
+    "lib:ui:test": "ng test ui",
     "lib:ui:storybook:start": "nx run ui:storybook",
     "lib:ui:storybook:e2e": "nx run ui-e2e:e2e",
     "lib:ui:storybook:e2e:watch": "nx run ui-e2e:e2e --watch",

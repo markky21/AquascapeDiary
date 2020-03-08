@@ -299,35 +299,6 @@
           }
         }
       }
-    },
-    "secrets": {
-      "projectType": "library",
-      "root": "libs/secrets",
-      "sourceRoot": "libs/secrets/src",
-      "prefix": "aquascape-diary",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": ["libs/secrets/tsconfig.lib.json", "libs/secrets/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!libs/secrets/**", "**/*.spec.ts"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/secrets/jest.config.js",
-            "tsConfig": "libs/secrets/tsconfig.spec.json",
-            "setupFile": "libs/secrets/src/test-setup.ts",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "styleext": "scss"
-        }
-      }
     }
   },
   "cli": {
