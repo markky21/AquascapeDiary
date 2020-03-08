@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { TankListComponent } from './tank-list.component';
-import { NbButtonModule, NbCardModule, NbIconModule, NbListModule } from '@nebular/theme';
 import { RouterModule } from '@angular/router';
+import { NbButtonModule, NbCardModule, NbIconModule, NbListModule } from '@nebular/theme';
+import { TankListComponent } from './tank-list.component';
 
 @NgModule({
   declarations: [TankListComponent],

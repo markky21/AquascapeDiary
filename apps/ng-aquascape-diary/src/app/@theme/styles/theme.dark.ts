@@ -2,7 +2,8 @@ import { DARK_THEME as baseTheme, NbJSThemeOptions } from '@nebular/theme';
 
 const baseThemeVariables = baseTheme.variables;
 
-export const DARK_THEME = {
+// tslint:disable-next-line:no-object-literal-type-assertion
+export const DARK_THEME: NbJSThemeOptions = {
   name: 'dark',
   base: 'dark',
   variables: {

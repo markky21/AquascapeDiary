@@ -68,7 +68,7 @@ export class AuthService implements AuthServiceInterface {
       .findOneAndUpdate(
         filter,
         {
-          resetToken: resetToken,
+          resetToken,
           resetTokenExpiration: Date.now() + RESET_TOKEN_EXPIRATION_TIME
         },
         { new: true }

@@ -11,7 +11,7 @@ import { UserDoc, UserModel } from './users.interfaces';
 export interface UsersServiceInterface {
   getModel: Model<UserDoc>;
   create(createUserDto: UserCreateDto): Promise<Doc<User>>;
-  findAll(): Promise<Doc<User>[]>;
+  findAll(): Promise<Array<Doc<User>>>;
   findOne(conditions: any): Promise<Doc<User>>;
 }
 

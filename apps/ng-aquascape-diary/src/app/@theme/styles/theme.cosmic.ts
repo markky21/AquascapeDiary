@@ -2,6 +2,7 @@ import { COSMIC_THEME as baseTheme, NbJSThemeOptions } from '@nebular/theme';
 
 const baseThemeVariables = baseTheme.variables;
 
+// tslint:disable-next-line:no-object-literal-type-assertion
 export const COSMIC_THEME = {
   name: 'cosmic',
   base: 'cosmic',

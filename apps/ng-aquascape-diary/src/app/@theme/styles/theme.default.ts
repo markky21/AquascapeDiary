@@ -2,6 +2,7 @@ import { DEFAULT_THEME as baseTheme, NbJSThemeOptions } from '@nebular/theme';
 
 const baseThemeVariables = baseTheme.variables;
 
+// tslint:disable-next-line:no-object-literal-type-assertion
 export const DEFAULT_THEME = {
   name: 'default',
   base: 'default',

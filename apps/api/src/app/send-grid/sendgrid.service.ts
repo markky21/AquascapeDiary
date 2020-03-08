@@ -10,7 +10,7 @@ import { logger } from './sendgrid.logger';
 
 export interface SendGridServiceInterface {
   send(
-    data: Partial<MailData> | Partial<MailData>[],
+    data: Partial<MailData> | Array<Partial<MailData>>,
     isMultiple?: boolean,
     cb?: (err: Error | ResponseError, result: [ClientResponse, {}]) => void
   ): Promise<[ClientResponse, {}]>;
@@ -44,13 +44,15 @@ export class SendGridService implements SendGridServiceInterface {
   }
 
   public async send(
-    data: Partial<MailData> | Partial<MailData>[],
+    data: Partial<MailData> | Array<Partial<MailData>>,
     isMultiple?: boolean,
     cb?: (err: Error | ResponseError, result: [ClientResponse, {}]) => void
   ): Promise<[ClientResponse, {}]> {
     if (Array.isArray(data)) {
+      // @ts-ignore
       return SendGrid.send(data.map(d => this.mergeWithDefaultMailData(d)) as MailData[], isMultiple, cb);
     } else {
+      // @ts-ignore
       return SendGrid.send(this.mergeWithDefaultMailData(data), isMultiple, cb);
     }
   }
@@ -59,6 +61,7 @@ export class SendGridService implements SendGridServiceInterface {
     data: Partial<MailData>,
     cb?: (error: Error | ResponseError, result: [ClientResponse, {}]) => void
   ): Promise<[ClientResponse, {}]> {
+    // @ts-ignore
     return SendGrid.sendMultiple(this.mergeWithDefaultMailData(data) as MailData, cb);
   }
 

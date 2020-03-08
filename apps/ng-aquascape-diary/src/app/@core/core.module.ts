@@ -49,6 +49,7 @@ export const NB_CORE_PROVIDERS = [
   StateService
 ];
 
+// tslint:disable-next-line:max-classes-per-file
 @NgModule({
   imports: [CommonModule, environment.production ? [] : AkitaNgDevtools.forRoot()],
   exports: [NbAuthModule],

@@ -2,6 +2,7 @@ import { CORPORATE_THEME as baseTheme, NbJSThemeOptions } from '@nebular/theme';
 
 const baseThemeVariables = baseTheme.variables;
 
+// tslint:disable-next-line:no-object-literal-type-assertion
 export const CORPORATE_THEME = {
   name: 'corporate',
   base: 'corporate',

@@ -5,7 +5,7 @@ import { SendGridServiceInterface } from './sendgrid.service';
 
 export class SendGridServiceStub implements SendGridServiceInterface {
   public send(
-    data: Partial<MailData> | Partial<MailData>[],
+    data: Partial<MailData> | Array<Partial<MailData>>,
     isMultiple?: boolean,
     cb?: (err: Error | ResponseError, result: [ClientResponse, {}]) => void
   ): Promise<[ClientResponse, {}]> {

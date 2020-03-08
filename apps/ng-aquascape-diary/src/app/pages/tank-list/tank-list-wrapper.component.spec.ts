@@ -1,8 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { ThemeModule } from '../../@theme/theme.module';
 import { TankListWrapperComponent } from './tank-list-wrapper.component';
 import { TankListWrapperModule } from './tank-list.module';
-import { RouterTestingModule } from '@angular/router/testing';
 
 describe('DiaryComponent', () => {
   let component: TankListWrapperComponent;

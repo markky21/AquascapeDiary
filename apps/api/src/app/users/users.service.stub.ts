@@ -12,7 +12,7 @@ export class UsersServiceStub implements UsersServiceInterface {
     return Promise.resolve(null);
   }
 
-  public findAll(): Promise<Doc<User>[]> {
+  public findAll(): Promise<Array<Doc<User>>> {
     return Promise.resolve(null);
   }
 
