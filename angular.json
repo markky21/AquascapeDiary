@@ -21,7 +21,11 @@
             "polyfills": "apps/ng-aquascape-diary/src/polyfills.ts",
             "tsConfig": "apps/ng-aquascape-diary/tsconfig.app.json",
             "aot": true,
-            "assets": ["apps/ng-aquascape-diary/src/favicon.ico", "apps/ng-aquascape-diary/src/assets"],
+            "assets": [
+              "apps/ng-aquascape-diary/src/favicon.ico",
+              "apps/ng-aquascape-diary/src/assets",
+              "apps/ng-aquascape-diary/src/manifest.webmanifest"
+            ],
             "styles": ["apps/ng-aquascape-diary/src/styles.scss"],
             "scripts": []
           },
@@ -52,7 +56,9 @@
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
                 }
-              ]
+              ],
+              "serviceWorker": true,
+              "ngswConfigPath": "apps/ng-aquascape-diary/ngsw-config.json"
             }
           }
         },
